@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NJ CyberGuard | Network & Security Solutions</title>
   <style>
-    /* ── Reset & Base ──────────────────────────────── */
+    /* ── Reset & Base ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -17,7 +17,7 @@
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; }
 
-    /* ── Colors ──────────────────────────────── */
+    /* ── Colors ───────────────────────────────────────────────── */
     :root {
       --navy:   #0d1b3e;
       --blue:   #1a55af;
@@ -29,7 +29,7 @@
       --white:  #ffffff;
     }
 
-    /* ── Utility ──────────────────────────────── */
+    /* ── Utility ──────────────────────────────────────────────── */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     .btn {
       display: inline-block;
@@ -73,7 +73,7 @@
       max-width: 560px;
     }
 
-    /* ── Nav ──────────────────────────────── */
+    /* ── Nav ──────────────────────────────────────────────────── */
     nav {
       position: sticky;
       top: 0;
@@ -121,7 +121,7 @@
     .nav-links a:hover { color: var(--navy); }
     .nav-cta { margin-left: 16px; }
 
-    /* ── Hero ──────────────────────────────── */
+    /* ── Hero ─────────────────────────────────────────────────── */
     #hero {
       background: linear-gradient(135deg, #0d1b3e 0%, #1a3068 55%, #1a55af 100%);
       color: #fff;
@@ -218,7 +218,7 @@
     .stat-num { font-size: 1.8rem; font-weight: 800; color: #7eb8ff; }
     .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
 
-    /* ── Trust Bar ──────────────────────────────── */
+    /* ── Trust Bar ────────────────────────────────────────────── */
     #trust {
       background: var(--light);
       border-bottom: 1px solid var(--border);
@@ -245,7 +245,7 @@
     }
     .trust-pill svg { width: 16px; height: 16px; color: var(--blue); }
 
-    /* ── Services ────────────────────────────────── */
+    /* ── Services ─────────────────────────────────────────────── */
     #services { padding: 96px 0; background: #fff; }
     .services-header { text-align: center; margin-bottom: 56px; }
     .services-header .section-sub { margin: 12px auto 0; }
@@ -297,7 +297,7 @@
       flex-shrink: 0;
     }
 
-    /* ── Why Us ──────────────────────────────── */
+    /* ── Why Us ───────────────────────────────────────────────── */
     #why { padding: 96px 0; background: var(--light); }
     .why-grid {
       display: grid;
@@ -352,7 +352,7 @@
     }
     .check-icon svg { width: 13px; height: 13px; fill: #7eb8ff; }
 
-    /* ── Contact ────────────────────────────────── */
+    /* ── Contact ──────────────────────────────────────────────── */
     #contact { padding: 96px 0; background: #fff; }
     .contact-grid {
       display: grid;
@@ -424,7 +424,121 @@
       margin-top: 16px;
     }
 
-    /* ── Footer ────────────────────────────────── */
+    /* ── Newsletter ───────────────────────────────────────────── */
+    #newsletter {
+      background: linear-gradient(135deg, #0a1628 0%, #1a3a6b 100%);
+      padding: 72px 0;
+      color: #fff;
+    }
+    .newsletter-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .newsletter-text h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    .newsletter-text p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.97rem;
+      line-height: 1.7;
+    }
+    .newsletter-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .newsletter-form-box {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .newsletter-form-box h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .newsletter-form-box p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
+    }
+    .newsletter-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .newsletter-input-group input {
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-input-group input::placeholder { color: rgba(255,255,255,0.4); }
+    .newsletter-input-group input:focus { border-color: #4a9eff; }
+    .newsletter-submit {
+      width: 100%;
+      padding: 13px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: #0066cc;
+      color: #fff;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .newsletter-submit:hover { background: #0052a3; transform: translateY(-1px); }
+    .newsletter-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+    .newsletter-success {
+      display: none;
+      text-align: center;
+      padding: 16px;
+      background: rgba(22,101,52,0.3);
+      border: 1px solid rgba(134,239,172,0.4);
+      border-radius: 10px;
+      color: #86efac;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+    .newsletter-perks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .newsletter-perk {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .newsletter-perk svg { flex-shrink: 0; color: #4a9eff; }
+    @media (max-width: 768px) {
+      .newsletter-inner { grid-template-columns: 1fr; gap: 32px; }
+      .newsletter-text h2 { font-size: 1.5rem; }
+    }
+
+    /* ── Footer ───────────────────────────────────────────────── */
     footer {
       background: var(--navy);
       color: rgba(255,255,255,0.7);
@@ -451,7 +565,7 @@
       font-size: 0.82rem;
     }
 
-    /* ── Mobile ────────────────────────────────── */
+    /* ── Mobile ───────────────────────────────────────────────── */
     @media (max-width: 900px) {
       .hero-grid, .why-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
       .hero-visual { display: none; }
@@ -506,7 +620,7 @@
 </head>
 <body>
 
-<!-- ══ NAV ═══════════════════════════════════ -->
+<!-- ══ NAV ══════════════════════════════════════════════════════ -->
 <nav>
   <div class="container nav-inner">
     <a href="#" class="logo">
@@ -518,23 +632,24 @@
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#why">Why Us</a></li>
+      <li><a href="#newsletter">Newsletter</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="btn btn-primary nav-cta">Get a Free Quote</a>
   </div>
 </nav>
 
-<!-- ══ HERO ═══════════════════════════════════════ -->
+<!-- ══ HERO ═════════════════════════════════════════════════════ -->
 <section id="hero">
   <div class="container">
     <div class="hero-grid">
       <div>
         <div class="hero-badge">
           <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6L12 2z"/></svg>
-          Trusted Security & Network Experts — New Jersey
+          Trusted Security &amp; Network Experts — New Jersey
         </div>
         <h1 class="hero-title">
-          Protect & Connect<br>
+          Protect &amp; Connect<br>
           Your Business<br>
           <span>with Confidence</span>
         </h1>
@@ -577,21 +692,21 @@
   </div>
 </section>
 
-<!-- ══ TRUST BAR ═══════════════════════════════════════ -->
+<!-- ══ TRUST BAR ════════════════════════════════════════════════ -->
 <div id="trust">
   <div class="container">
     <div class="trust-inner">
       <div class="trust-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
-        Licensed & Insured
+        Licensed &amp; Insured
       </div>
       <div class="trust-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
-        NJ-Based & Family-Owned
+        NJ-Based &amp; Family-Owned
       </div>
       <div class="trust-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
-        Residential & Commercial
+        Residential &amp; Commercial
       </div>
       <div class="trust-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
@@ -601,7 +716,7 @@
   </div>
 </div>
 
-<!-- ══ SERVICES ══════════════════════════════════════════ -->
+<!-- ══ SERVICES ═════════════════════════════════════════════════ -->
 <section id="services">
   <div class="container">
     <div class="services-header">
@@ -623,10 +738,10 @@
         <h3>Network Installation</h3>
         <p>End-to-end network infrastructure design and installation for offices, warehouses, and commercial properties across New Jersey.</p>
         <ul class="service-list">
-          <li>Structured cabling & wiring</li>
+          <li>Structured cabling &amp; wiring</li>
           <li>Wi-Fi access point setup</li>
-          <li>Switch & router configuration</li>
-          <li>VoIP & cloud connectivity</li>
+          <li>Switch &amp; router configuration</li>
+          <li>VoIP &amp; cloud connectivity</li>
         </ul>
       </div>
 
@@ -640,8 +755,8 @@
         <h3>Security Installations</h3>
         <p>Physical and electronic security systems professionally installed to protect your people, property, and assets.</p>
         <ul class="service-list">
-          <li>CCTV & IP camera systems</li>
-          <li>Access control & key fobs</li>
+          <li>CCTV &amp; IP camera systems</li>
+          <li>Access control &amp; key fobs</li>
           <li>Alarm system integration</li>
           <li>Remote monitoring setup</li>
         </ul>
@@ -658,10 +773,10 @@
         <h3>Network Security</h3>
         <p>Protect your business from cyber threats with our layered network security solutions — proactive, not reactive.</p>
         <ul class="service-list">
-          <li>Firewall setup & management</li>
-          <li>VPN & remote access security</li>
+          <li>Firewall setup &amp; management</li>
+          <li>VPN &amp; remote access security</li>
           <li>Network vulnerability audits</li>
-          <li>Ongoing monitoring & patching</li>
+          <li>Ongoing monitoring &amp; patching</li>
         </ul>
       </div>
 
@@ -669,7 +784,7 @@
   </div>
 </section>
 
-<!-- ══ WHY US ═══════════════════════════════════════ -->
+<!-- ══ WHY US ════════════════════════════════════════════════════ -->
 <section id="why">
   <div class="container">
     <div class="why-grid">
@@ -718,11 +833,11 @@
           </li>
           <li>
             <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            Full system testing & walkthrough
+            Full system testing &amp; walkthrough
           </li>
           <li>
             <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            Ongoing support & maintenance plans
+            Ongoing support &amp; maintenance plans
           </li>
         </ul>
       </div>
@@ -730,13 +845,13 @@
   </div>
 </section>
 
-<!-- ══ CONTACT ══════════════════════════════════════════ -->
+<!-- ══ CONTACT ══════════════════════════════════════════════════ -->
 <section id="contact">
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info">
         <div class="section-label">Get in Touch</div>
-        <h2>Let's Secure &<br>Connect Your Business</h2>
+        <h2>Let's Secure &amp;<br>Connect Your Business</h2>
         <p>Tell us about your project or ask a question. We respond within one business day — usually much faster.</p>
         <div class="contact-details">
           <div class="contact-detail">
@@ -763,7 +878,7 @@
             </div>
             <div>
               <div class="contact-detail-label">Service Area</div>
-              <div class="contact-detail-val">New Jersey & Surrounding Areas</div>
+              <div class="contact-detail-val">New Jersey &amp; Surrounding Areas</div>
             </div>
           </div>
         </div>
@@ -818,7 +933,52 @@
   </div>
 </section>
 
-<!-- ══ FOOTER ═══════════════════════════════════════ -->
+<!-- ══ NEWSLETTER ══════════════════════════════════════════════════ -->
+<section id="newsletter">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="newsletter-text">
+        <div class="newsletter-badge">📰 Free Newsletter</div>
+        <h2>Stay Ahead of NJ Cyber Threats</h2>
+        <p>Get weekly cybersecurity news and alerts specific to New Jersey businesses — breaches, vulnerabilities, compliance updates, and expert tips delivered straight to your inbox.</p>
+        <div class="newsletter-perks">
+          <div class="newsletter-perk">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Local NJ threat intelligence &amp; incident reports
+          </div>
+          <div class="newsletter-perk">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Cybersecurity tips for small &amp; mid-size businesses
+          </div>
+          <div class="newsletter-perk">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Product spotlights: Ubiquiti, Aqara &amp; more
+          </div>
+          <div class="newsletter-perk">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            No spam — unsubscribe anytime
+          </div>
+        </div>
+      </div>
+      <div class="newsletter-form-box">
+        <h3>Join the NJ Security Newsletter</h3>
+        <p>Join local business owners and IT managers already subscribed.</p>
+        <form id="newsletterForm" onsubmit="handleNewsletterSubmit(event)">
+          <div class="newsletter-input-group">
+            <input type="text" id="subName" placeholder="Your name (optional)" />
+            <input type="email" id="subEmail" placeholder="your@email.com" required />
+            <button type="submit" class="newsletter-submit" id="newsletterBtn">Subscribe Free →</button>
+          </div>
+          <div class="newsletter-success" id="newsletterSuccess">
+            ✅ You're in! Watch for your first NJ security update soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════ -->
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -857,17 +1017,78 @@
 </footer>
 
 <script>
-  function handleSubmit(e) {
+  // ── Contact form ──────────────────────────────────────────────
+  async function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
-    btn.textContent = 'Sending...';
+    const successEl = document.getElementById('formSuccess');
+    btn.textContent = 'Sending…';
     btn.disabled = true;
-    setTimeout(() => {
-      document.getElementById('formSuccess').style.display = 'block';
+    successEl.style.display = 'none';
+
+    const payload = {
+      fname:   document.getElementById('fname').value.trim(),
+      lname:   document.getElementById('lname').value.trim(),
+      email:   document.getElementById('email').value.trim(),
+      phone:   document.getElementById('phone').value.trim(),
+      service: document.getElementById('service').value,
+      msg:     document.getElementById('msg').value.trim()
+    };
+
+    try {
+      const res = await fetch('/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        successEl.style.display = 'block';
+        e.target.reset();
+      } else {
+        alert('Something went wrong. Please email us directly at info@njcyberguard.com or call (908) 255-0663.');
+      }
+    } catch (err) {
+      alert('Could not send your request. Please email info@njcyberguard.com or call (908) 255-0663.');
+    } finally {
       btn.textContent = 'Send Request →';
       btn.disabled = false;
-      e.target.reset();
-    }, 1200);
+    }
+  }
+
+  // ── Newsletter signup ─────────────────────────────────────────
+  async function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('newsletterBtn');
+    const successEl = document.getElementById('newsletterSuccess');
+    btn.textContent = 'Subscribing…';
+    btn.disabled = true;
+    successEl.style.display = 'none';
+
+    const payload = {
+      email: document.getElementById('subEmail').value.trim(),
+      name:  document.getElementById('subName').value.trim()
+    };
+
+    try {
+      const res = await fetch('/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        successEl.style.display = 'block';
+        e.target.reset();
+      } else {
+        alert('Subscription failed. Please try again or email info@njcyberguard.com.');
+      }
+    } catch (err) {
+      alert('Could not subscribe. Please try again later.');
+    } finally {
+      btn.textContent = 'Subscribe Free →';
+      btn.disabled = false;
+    }
   }
 
   // Smooth active nav highlight on scroll
