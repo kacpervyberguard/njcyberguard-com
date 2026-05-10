@@ -1,0 +1,9 @@
+name = "njcyberguard-newsletter"
+main = "index.js"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[triggers]
+# 9 AM ET = 13:00 UTC (EDT) / 14:00 UTC (EST)
+# Using 13:00 UTC — hits at 9 AM in summer, 8 AM in winter
+crons = ["0 13 * * *"]
