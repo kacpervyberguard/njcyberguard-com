@@ -1,0 +1,21 @@
+name: Deploy Newsletter Worker
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workers/newsletter/**'
+      - 'wrangler.toml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Worker
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: 68dfba371cedbe3fb45453cd5b1749cd
