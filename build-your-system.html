@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Build Your Custom Security System | NJ CyberGuard</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
     
     :root {
       --navy: #0d1b3e;
@@ -15,7 +15,6 @@
       --light: #f8fafc;
       --gray: #64748b;
       --border: #e2e8f0;
-      --success: #166534;
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,7 +26,6 @@
     }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-    /* Header */
     header {
       background: white;
       border-bottom: 1px solid var(--border);
@@ -61,7 +59,6 @@
     }
     .logo-icon svg { width: 22px; height: 22px; fill: white; }
 
-    /* Hero */
     .hero {
       background: linear-gradient(135deg, #0d1b3e 0%, #1a3068 100%);
       color: white;
@@ -81,7 +78,6 @@
       color: rgba(255,255,255,0.85);
     }
 
-    /* Quick Start Buttons */
     .quick-starts {
       display: flex;
       flex-wrap: wrap;
@@ -104,13 +100,7 @@
       background: var(--blue);
       color: white;
     }
-    .quick-btn.active {
-      background: var(--blue);
-      color: white;
-      border-color: var(--blue);
-    }
 
-    /* Progress */
     .progress {
       display: flex;
       align-items: center;
@@ -119,20 +109,9 @@
       margin-bottom: 32px;
       font-size: 0.9rem;
       color: var(--gray);
-    }
-    .progress-step {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .progress-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--blue);
-      border-radius: 50%;
+      flex-wrap: wrap;
     }
 
-    /* Steps */
     .step-section {
       margin-bottom: 48px;
     }
@@ -158,7 +137,6 @@
       font-weight: 700;
     }
 
-    /* Cards */
     .option-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -174,7 +152,6 @@
     }
     .option-card:hover {
       border-color: var(--blue);
-      transform: translateY(-2px);
     }
     .option-card.selected {
       border-color: var(--blue);
@@ -202,7 +179,6 @@
     .badge-value { background: #dcfce7; color: #166534; }
     .badge-premium { background: #fef3c7; color: #92400e; }
 
-    /* Quote Sidebar */
     .quote-sidebar {
       background: var(--light);
       border: 1px solid var(--border);
@@ -236,7 +212,6 @@
       margin-top: 8px;
     }
 
-    /* Form Modal */
     .modal {
       display: none;
       position: fixed;
@@ -254,7 +229,6 @@
       width: 90%;
     }
 
-    /* Buttons */
     .btn {
       display: inline-block;
       padding: 12px 24px;
@@ -315,10 +289,10 @@
 
   <!-- Progress -->
   <div class="progress">
-    <div class="progress-step"><span class="progress-dot"></span> <span>1. Property Type</span></div>
-    <div class="progress-step"><span class="progress-dot"></span> <span>2. Install Type</span></div>
-    <div class="progress-step"><span class="progress-dot"></span> <span>3. Protection Level</span></div>
-    <div class="progress-step"><span class="progress-dot"></span> <span>Review & Quote</span></div>
+    <div>1. Property Type</div>
+    <div>2. Install Type</div>
+    <div>3. Protection Level</div>
+    <div>Review &amp; Quote</div>
   </div>
 
   <!-- Step 1: Property Type -->
@@ -327,11 +301,4 @@
     <div class="option-grid" id="property-options">
       <div class="option-card" data-value="residential" onclick="selectOption(this, 'property')">
         <h4>Residential Home</h4>
-        <p>Single family home or townhouse. Most popular choice.</p>
-      </div>
-      <div class="option-card" data-value="business" onclick="selectOption(this, 'property')">
-        <h4>Small Business</h4>
-        <p>Retail store, office, or small warehouse (under 10,000 sq ft).</p>
-      </div>
-      <div class="option-card" data-value
-        Restore full build-your-system.html with improvements
+        <p>Single family
