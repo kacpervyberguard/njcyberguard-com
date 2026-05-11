@@ -1,1 +1,337 @@
-FULL IMPROVED CONTENT HERE - would be the entire new HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build Your Custom Security System | NJ CyberGuard</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+    
+    :root {
+      --navy: #0d1b3e;
+      --blue: #1a55af;
+      --sky: #3b82f6;
+      --accent: #e8f0fe;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --border: #e2e8f0;
+      --success: #166534;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #1e2937;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--blue);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-icon svg { width: 22px; height: 22px; fill: white; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0d1b3e 0%, #1a3068 100%);
+      color: white;
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 620px;
+      margin: 0 auto 32px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* Quick Start Buttons */
+    .quick-starts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .quick-btn {
+      background: white;
+      border: 2px solid var(--blue);
+      color: var(--blue);
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quick-btn:hover {
+      background: var(--blue);
+      color: white;
+    }
+    .quick-btn.active {
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue);
+    }
+
+    /* Progress */
+    .progress {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+    .progress-step {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .progress-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--blue);
+      border-radius: 50%;
+    }
+
+    /* Steps */
+    .step-section {
+      margin-bottom: 48px;
+    }
+    .step-header {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .step-number {
+      background: var(--blue);
+      color: white;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* Cards */
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .option-card {
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: white;
+    }
+    .option-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+    .option-card.selected {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(26, 85, 175, 0.15);
+    }
+    .option-card h4 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: var(--navy);
+    }
+    .option-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      margin-bottom: 10px;
+    }
+    .badge-popular { background: #dbeafe; color: #1e40af; }
+    .badge-value { background: #dcfce7; color: #166534; }
+    .badge-premium { background: #fef3c7; color: #92400e; }
+
+    /* Quote Sidebar */
+    .quote-sidebar {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      position: sticky;
+      top: 90px;
+    }
+    .quote-sidebar h3 {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      color: var(--navy);
+    }
+    .quote-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+    .quote-total {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 2px solid var(--border);
+    }
+    .quote-note {
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 8px;
+    }
+
+    /* Form Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 520px;
+      width: 90%;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+    }
+    .btn-primary:hover { background: #1447a0; }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--blue);
+      color: var(--blue);
+    }
+
+    @media (max-width: 900px) {
+      .option-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6L12 2z"/></svg>
+      </div>
+      NJ CyberGuard
+    </a>
+    <a href="index.html" style="color: var(--gray); font-weight: 500;">← Back to Home</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Build Your Custom<br>Security System</h1>
+    <p>Choose what you need. See the price instantly. Get a professional quote in under 60 seconds.</p>
+    
+    <!-- Quick Start Buttons -->
+    <div class="quick-starts">
+      <button class="quick-btn" onclick="quickStart('home')">Most Popular for Homes</button>
+      <button class="quick-btn" onclick="quickStart('business')">Best for Small Business</button>
+      <button class="quick-btn" onclick="quickStart('premium')">Maximum Security</button>
+      <button class="quick-btn" onclick="quickStart('scratch')">Build from Scratch</button>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- Progress -->
+  <div class="progress">
+    <div class="progress-step"><span class="progress-dot"></span> <span>1. Property Type</span></div>
+    <div class="progress-step"><span class="progress-dot"></span> <span>2. Install Type</span></div>
+    <div class="progress-step"><span class="progress-dot"></span> <span>3. Protection Level</span></div>
+    <div class="progress-step"><span class="progress-dot"></span> <span>Review & Quote</span></div>
+  </div>
+
+  <!-- Step 1: Property Type -->
+  <div class="step-section">
+    <div class="step-header"><span class="step-number">1</span> What are you protecting?</div>
+    <div class="option-grid" id="property-options">
+      <div class="option-card" data-value="residential" onclick="selectOption(this, 'property')">
+        <h4>Residential Home</h4>
+        <p>Single family home or townhouse. Most popular choice.</p>
+      </div>
+      <div class="option-card" data-value="business" onclick="selectOption(this, 'property')">
+        <h4>Small Business</h4>
+        <p>Retail store, office, or small warehouse (under 10,000 sq ft).</p>
+      </div>
+      <div class="option-card" data-value
+        Restore full build-your-system.html with improvements
