@@ -250,6 +250,16 @@
       color: var(--blue);
     }
 
+    .financing-note {
+      font-size: 0.85rem;
+      color: #166534;
+      background: #dcfce7;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-top: 12px;
+      text-align: center;
+    }
+
     @media (max-width: 900px) {
       .option-grid { grid-template-columns: 1fr; }
     }
@@ -301,4 +311,263 @@
     <div class="option-grid" id="property-options">
       <div class="option-card" data-value="residential" onclick="selectOption(this, 'property')">
         <h4>Residential Home</h4>
-        <p>Single family
+        <p>Single family home or townhouse. Most popular choice.</p>
+      </div>
+      <div class="option-card" data-value="business" onclick="selectOption(this, 'property')">
+        <h4>Small Business</h4>
+        <p>Retail store, office, or small warehouse (under 10,000 sq ft).</p>
+      </div>
+      <div class="option-card" data-value="multifamily" onclick="selectOption(this, 'property')">
+        <h4>Multi-Family / Apartment</h4>
+        <p>Building with multiple units. Includes tenant access control.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Install Type -->
+  <div class="step-section">
+    <div class="step-header"><span class="step-number">2</span> How do you want it installed?</div>
+    <div class="option-grid" id="install-options">
+      <div class="option-card" data-value="self" onclick="selectOption(this, 'install')">
+        <h4>Self-Install (DIY)</h4>
+        <p>You install everything yourself. We provide full support.</p>
+      </div>
+      <div class="option-card selected" data-value="pro" onclick="selectOption(this, 'install')">
+        <h4>Professional Install</h4>
+        <p>Our certified techs handle everything. Most popular option.</p>
+      </div>
+      <div class="option-card" data-value="managed" onclick="selectOption(this, 'install')">
+        <h4>Full Managed + Custom Dashboard</h4>
+        <p>We install + give you a branded security dashboard + proactive monitoring.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Protection Level -->
+  <div class="step-section">
+    <div class="step-header"><span class="step-number">3</span> Choose your protection level</div>
+    
+    <div class="option-grid" id="tier-options">
+      <div class="option-card selected" data-value="alarmdotcom" onclick="selectOption(this, 'tier')">
+        <span class="badge badge-popular">MOST POPULAR</span>
+        <h4>Alarm.com Smart Security</h4>
+        <p>Best app experience, professional 24/7 monitoring, automation, and strong cybersecurity tools. Recommended for most customers.</p>
+      </div>
+
+      <div class="option-card" data-value="privacy" onclick="selectOption(this, 'tier')">
+        <span class="badge badge-value">BEST VALUE • NO MONTHLY FEES</span>
+        <h4>Privacy-First (Eufy + Aqara)</h4>
+        <p>Local storage, no monthly monitoring fees, excellent smart home features. Great if you want to avoid subscriptions.</p>
+      </div>
+
+      <div class="option-card" data-value="premium" onclick="selectOption(this, 'tier')">
+        <span class="badge badge-premium">MAXIMUM SECURITY</span>
+        <h4>Premium Cyber Defense</h4>
+        <p>Ubiquiti + Alarm.com + advanced network security. Best for high-value homes and businesses.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quote Sidebar -->
+  <div style="display: grid; grid-template-columns: 1fr 380px; gap: 32px; align-items: start;">
+    <div></div>
+    
+    <div class="quote-sidebar">
+      <h3>Your Quote Summary</h3>
+      
+      <div class="quote-row"><span>Equipment</span> <span id="quote-equipment">$2,450</span></div>
+      <div class="quote-row"><span>Professional Installation</span> <span id="quote-install">$650</span></div>
+      
+      <div class="quote-total">
+        <div style="display:flex; justify-content:space-between;">
+          <span>Total Due Today</span>
+          <span id="quote-total">$3,100</span>
+        </div>
+      </div>
+      
+      <div class="quote-row" style="margin-top: 12px;">
+        <span>Est. Monthly Monitoring</span> 
+        <span id="quote-monthly">$42/mo</span>
+      </div>
+      <div class="quote-note">* Monthly monitoring is optional. Self-install has $0 monthly.</div>
+
+      <div class="financing-note">
+        Finance this system for as low as ~$89/month with approved credit
+      </div>
+
+      <button onclick="openQuoteModal()" class="btn btn-primary" style="width:100%; margin-top: 20px; padding: 14px;">
+        Get My Custom Quote →
+      </button>
+      
+      <button onclick="window.location.href='index.html#contact'" class="btn btn-outline" style="width:100%; margin-top: 10px;">
+        Book a Free Consultation Instead
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Quote Modal -->
+<div id="quoteModal" class="modal">
+  <div class="modal-content">
+    <h2 style="margin-bottom: 8px;">Get Your Custom Quote</h2>
+    <p style="color: var(--gray); margin-bottom: 24px;">We'll email you a detailed proposal within 1 business day.</p>
+    
+    <form id="quoteForm" onsubmit="submitQuoteForm(event)">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+        <div>
+          <label style="font-size:0.85rem; font-weight:600;">First Name</label>
+          <input type="text" id="fname" required style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; margin-top:4px;">
+        </div>
+        <div>
+          <label style="font-size:0.85rem; font-weight:600;">Last Name</label>
+          <input type="text" id="lname" required style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; margin-top:4px;">
+        </div>
+      </div>
+      
+      <div style="margin-bottom:16px;">
+        <label style="font-size:0.85rem; font-weight:600;">Email Address</label>
+        <input type="email" id="email" required style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; margin-top:4px;">
+      </div>
+      
+      <div style="margin-bottom:16px;">
+        <label style="font-size:0.85rem; font-weight:600;">Phone Number</label>
+        <input type="tel" id="phone" style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; margin-top:4px;">
+      </div>
+      
+      <div style="margin-bottom:20px;">
+        <label style="font-size:0.85rem; font-weight:600;">Additional Notes (optional)</label>
+        <textarea id="notes" rows="3" style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; margin-top:4px;" placeholder="Any specific requirements or questions..."></textarea>
+      </div>
+      
+      <button type="submit" class="btn btn-primary" style="width:100%;">Send My Quote Request →</button>
+    </form>
+    
+    <div id="formSuccess" style="display:none; text-align:center; margin-top:20px; color:#166534; font-weight:600;">
+      ✅ Thank you! We'll send your custom quote within 1 business day.
+    </div>
+  </div>
+</div>
+
+<script>
+let selections = {
+  property: 'residential',
+  install: 'pro',
+  tier: 'alarmdotcom'
+};
+
+function updateQuote() {
+  let equipment = 1850;
+  let installCost = 650;
+  let monthly = 42;
+
+  // Tier pricing
+  if (selections.tier === 'privacy') {
+    equipment = 1420;
+    monthly = 0;
+  }
+  if (selections.tier === 'premium') {
+    equipment = 2890;
+    monthly = 68;
+  }
+
+  // Install type pricing
+  if (selections.install === 'self') {
+    installCost = 0;
+  }
+  if (selections.install === 'managed') {
+    installCost = 950;
+    monthly = monthly + 25;
+  }
+
+  const total = equipment + installCost;
+
+  document.getElementById('quote-equipment').textContent = '$' + equipment.toLocaleString();
+  document.getElementById('quote-install').textContent = '$' + installCost.toLocaleString();
+  document.getElementById('quote-total').textContent = '$' + total.toLocaleString();
+  document.getElementById('quote-monthly').textContent = '$' + monthly + '/mo';
+}
+
+function selectOption(element, type) {
+  const container = element.parentElement;
+  container.querySelectorAll('.option-card').forEach(el => el.classList.remove('selected'));
+  element.classList.add('selected');
+  selections[type] = element.dataset.value;
+  updateQuote();
+}
+
+function quickStart(type) {
+  document.querySelectorAll('.option-card').forEach(el => el.classList.remove('selected'));
+
+  if (type === 'home') {
+    selections = { property: 'residential', install: 'pro', tier: 'alarmdotcom' };
+  } else if (type === 'business') {
+    selections = { property: 'business', install: 'pro', tier: 'alarmdotcom' };
+  } else if (type === 'premium') {
+    selections = { property: 'residential', install: 'managed', tier: 'premium' };
+  } else if (type === 'scratch') {
+    selections = { property: 'residential', install: 'pro', tier: 'alarmdotcom' };
+  }
+
+  // Re-select correct cards
+  document.querySelectorAll('#property-options .option-card').forEach(el => {
+    if (el.dataset.value === selections.property) el.classList.add('selected');
+  });
+  document.querySelectorAll('#install-options .option-card').forEach(el => {
+    if (el.dataset.value === selections.install) el.classList.add('selected');
+  });
+  document.querySelectorAll('#tier-options .option-card').forEach(el => {
+    if (el.dataset.value === selections.tier) el.classList.add('selected');
+  });
+
+  updateQuote();
+}
+
+function openQuoteModal() {
+  document.getElementById('quoteModal').style.display = 'flex';
+}
+
+function closeQuoteModal() {
+  document.getElementById('quoteModal').style.display = 'none';
+}
+
+async function submitQuoteForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  // TODO: Replace with your real Formspree endpoint to receive the full configuration
+  // Example: const res = await fetch('https://formspree.io/f/xxxxxxxx', { method: 'POST', body: ... });
+
+  setTimeout(() => {
+    document.getElementById('formSuccess').style.display = 'block';
+    e.target.style.display = 'none';
+    
+    setTimeout(() => {
+      closeQuoteModal();
+      document.getElementById('formSuccess').style.display = 'none';
+      e.target.style.display = 'block';
+      e.target.reset();
+      btn.textContent = 'Send My Quote Request →';
+      btn.disabled = false;
+    }, 3000);
+  }, 1200);
+}
+
+window.onload = function() {
+  // Pre-select defaults
+  const prop = document.querySelector('#property-options .option-card[data-value="residential"]');
+  const inst = document.querySelector('#install-options .option-card[data-value="pro"]');
+  const tier = document.querySelector('#tier-options .option-card[data-value="alarmdotcom"]');
+
+  if (prop) prop.classList.add('selected');
+  if (inst) inst.classList.add('selected');
+  if (tier) tier.classList.add('selected');
+  
+  updateQuote();
+};
+</script>
+
+</body>
+</html>
