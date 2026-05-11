@@ -658,9 +658,7 @@
   }
 
   // ── Form submission ────────────────────────────────────────────────────────
-  // Replace the Formspree endpoint below with your real endpoint.
-  // Create one free at https://formspree.io — it takes 30 seconds.
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpwzorln';
+  const CONTACT_WORKER = 'https://njcyberguard-contact.damian-barczewski-co.workers.dev';
 
   async function submitQuoteForm(e) {
     e.preventDefault();
@@ -685,20 +683,20 @@
       protection_tier:  tierLabels[selections.tier],
 
       // Pricing
-      equipment_cost:   '$' + currentPrices.equipment.toLocaleString(),
-      install_cost:     '$' + currentPrices.installCost.toLocaleString(),
-      total_due_today:  '$' + currentPrices.total.toLocaleString(),
-      monthly_monitoring: currentPrices.monthly === 0 ? 'None' : '$' + currentPrices.monthly + '/mo',
+      equipment_cost:      '$' + currentPrices.equipment.toLocaleString(),
+      install_cost:        '$' + currentPrices.installCost.toLocaleString(),
+      total_due_today:     '$' + currentPrices.total.toLocaleString(),
+      monthly_monitoring:  currentPrices.monthly === 0 ? 'None' : '$' + currentPrices.monthly + '/mo',
 
       // Source
-      source: 'Build-Your-System Page',
+      source:       'Build-Your-System Page',
       submitted_at: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }) + ' ET'
     };
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(CONTACT_WORKER, {
         method:  'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(payload)
       });
 
