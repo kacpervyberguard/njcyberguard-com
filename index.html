@@ -58,20 +58,17 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--sky);
-      margin-bottom: 8px;
-    }
+      margin-bottom: 8px; }
     .section-title {
       font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 700;
       color: var(--navy);
-      line-height: 1.25;
-    }
+      line-height: 1.25; }
     .section-sub {
       color: var(--gray);
       font-size: 1.05rem;
       margin-top: 12px;
-      max-width: 560px;
-    }
+      max-width: 560px; }
 
     /* ── Nav ──────────────────────────────────────────────────── */
     nav {
@@ -86,38 +83,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 1.15rem;
-      color: var(--navy);
-    }
-    .logo-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--blue);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+      height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.15rem; color: var(--navy); }
+    .logo-icon { width: 36px; height: 36px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
     .logo-icon svg { width: 20px; height: 20px; fill: #fff; }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--gray);
-      transition: color 0.2s;
-    }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--gray); transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
     .nav-cta { margin-left: 16px; }
 
@@ -127,21 +98,18 @@
       color: #fff;
       padding: 100px 0 80px;
       position: relative;
-      overflow: hidden;
-    }
+      overflow: hidden; }
     #hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(circle at 70% 50%, rgba(59,130,246,0.18) 0%, transparent 60%);
-    }
+      background-image: radial-gradient(circle at 70% 50%, rgba(59,130,246,0.18) 0%, transparent 60%); }
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: 48px;
-      position: relative;
-    }
+      position: relative; }
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -154,38 +122,32 @@
       font-weight: 600;
       letter-spacing: 0.06em;
       color: #bdd4ff;
-      margin-bottom: 24px;
-    }
+      margin-bottom: 24px; }
     .hero-title {
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 800;
       line-height: 1.15;
-      margin-bottom: 20px;
-    }
+      margin-bottom: 20px; }
     .hero-title span { color: #7eb8ff; }
     .hero-desc {
       font-size: 1.05rem;
       color: rgba(255,255,255,0.78);
       max-width: 480px;
-      margin-bottom: 36px;
-    }
+      margin-bottom: 36px; }
     .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
     .btn-hero-white {
       background: #fff;
       color: var(--blue);
-      border: 2px solid #fff;
-    }
+      border: 2px solid #fff; }
     .btn-hero-white:hover { background: #e8f0fe; border-color: #e8f0fe; }
     .btn-hero-ghost {
       background: transparent;
       color: #fff;
-      border: 2px solid rgba(255,255,255,0.45);
-    }
+      border: 2px solid rgba(255,255,255,0.45); }
     .btn-hero-ghost:hover { background: rgba(255,255,255,0.1); }
     .hero-visual {
       display: flex;
-      justify-content: center;
-    }
+      justify-content: center; }
     .shield-wrapper {
       width: 260px;
       height: 260px;
@@ -195,16 +157,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-    }
+      position: relative; }
     .shield-wrapper::before {
       content: '';
       position: absolute;
       inset: -16px;
       border: 1px dashed rgba(255,255,255,0.12);
       border-radius: 50%;
-      animation: rotate 20s linear infinite;
-    }
+      animation: rotate 20s linear infinite; }
     @keyframes rotate { to { transform: rotate(360deg); } }
     .shield-wrapper svg { width: 120px; height: 120px; }
     .hero-stats {
@@ -212,8 +172,7 @@
       gap: 36px;
       margin-top: 48px;
       padding-top: 36px;
-      border-top: 1px solid rgba(255,255,255,0.15);
-    }
+      border-top: 1px solid rgba(255,255,255,0.15); }
     .stat-item { text-align: center; }
     .stat-num { font-size: 1.8rem; font-weight: 800; color: #7eb8ff; }
     .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -222,15 +181,13 @@
     #trust {
       background: var(--light);
       border-bottom: 1px solid var(--border);
-      padding: 20px 0;
-    }
+      padding: 20px 0; }
     .trust-inner {
       display: flex;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
-      justify-content: center;
-    }
+      justify-content: center; }
     .trust-pill {
       display: flex;
       align-items: center;
@@ -241,8 +198,7 @@
       padding: 8px 18px;
       font-size: 0.83rem;
       font-weight: 600;
-      color: var(--navy);
-    }
+      color: var(--navy); }
     .trust-pill svg { width: 16px; height: 16px; color: var(--blue); }
 
     /* ── Services ─────────────────────────────────────────────── */
@@ -252,20 +208,17 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
+      gap: 28px; }
     .service-card {
       background: #fff;
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 36px 28px;
-      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
-    }
+      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s; }
     .service-card:hover {
       box-shadow: 0 12px 40px rgba(26,85,175,0.1);
       transform: translateY(-4px);
-      border-color: var(--sky);
-    }
+      border-color: var(--sky); }
     .service-icon {
       width: 52px;
       height: 52px;
@@ -274,8 +227,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
-    }
+      margin-bottom: 20px; }
     .service-icon svg { width: 26px; height: 26px; color: var(--blue); }
     .service-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
     .service-card p { color: var(--gray); font-size: 0.93rem; line-height: 1.65; }
@@ -286,16 +238,14 @@
       padding: 4px 0;
       display: flex;
       align-items: center;
-      gap: 8px;
-    }
+      gap: 8px; }
     .service-list li::before {
       content: '';
       width: 6px;
       height: 6px;
       border-radius: 50%;
       background: var(--sky);
-      flex-shrink: 0;
-    }
+      flex-shrink: 0; }
 
     /* ── Why Us ───────────────────────────────────────────────── */
     #why { padding: 96px 0; background: var(--light); }
@@ -303,14 +253,12 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
-      align-items: center;
-    }
+      align-items: center; }
     .why-points { margin-top: 32px; display: flex; flex-direction: column; gap: 24px; }
     .why-point {
       display: flex;
       gap: 16px;
-      align-items: flex-start;
-    }
+      align-items: flex-start; }
     .why-num {
       min-width: 40px;
       height: 40px;
@@ -321,16 +269,14 @@
       font-size: 0.9rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-    }
+      justify-content: center; }
     .why-point h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
     .why-point p { color: var(--gray); font-size: 0.9rem; }
     .why-visual {
       background: linear-gradient(135deg, #0d1b3e, #1a55af);
       border-radius: 18px;
       padding: 48px 36px;
-      color: #fff;
-    }
+      color: #fff; }
     .why-visual-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 28px; }
     .checklist { list-style: none; display: flex; flex-direction: column; gap: 16px; }
     .checklist li {
@@ -338,8 +284,7 @@
       align-items: center;
       gap: 12px;
       font-size: 0.93rem;
-      color: rgba(255,255,255,0.88);
-    }
+      color: rgba(255,255,255,0.88); }
     .check-icon {
       width: 24px;
       height: 24px;
@@ -348,8 +293,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-    }
+      flex-shrink: 0; }
     .check-icon svg { width: 13px; height: 13px; fill: #7eb8ff; }
 
     /* ── Contact ──────────────────────────────────────────────── */
@@ -358,16 +302,14 @@
       display: grid;
       grid-template-columns: 1fr 1.3fr;
       gap: 64px;
-      align-items: start;
-    }
+      align-items: start; }
     .contact-info h2 { font-size: 1.8rem; font-weight: 700; color: var(--navy); margin-bottom: 14px; }
     .contact-info p { color: var(--gray); font-size: 0.95rem; margin-bottom: 32px; }
     .contact-details { display: flex; flex-direction: column; gap: 18px; }
     .contact-detail {
       display: flex;
       align-items: center;
-      gap: 14px;
-    }
+      gap: 14px; }
     .contact-detail-icon {
       width: 42px;
       height: 42px;
@@ -376,8 +318,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-    }
+      flex-shrink: 0; }
     .contact-detail-icon svg { width: 20px; height: 20px; color: var(--blue); }
     .contact-detail-label { font-size: 0.78rem; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; }
     .contact-detail-val { font-size: 0.93rem; font-weight: 600; color: var(--navy); }
@@ -386,15 +327,12 @@
       background: var(--light);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 40px 36px;
-    }
+      padding: 40px 36px; }
     .contact-form h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 24px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
     .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--navy); }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+    .form-group input, .form-group select, .form-group textarea {
       padding: 10px 14px;
       border: 1.5px solid var(--border);
       border-radius: 8px;
@@ -403,14 +341,10 @@
       color: var(--navy);
       background: #fff;
       transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
+      outline: none; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
       border-color: var(--sky);
-      box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
-    }
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.12); }
     .form-group textarea { resize: vertical; min-height: 110px; }
     .form-submit { width: 100%; padding: 13px; font-size: 1rem; border-radius: 8px; border: none; cursor: pointer; }
     .form-success {
@@ -421,32 +355,27 @@
       background: #dcfce7;
       border-radius: 10px;
       font-weight: 600;
-      margin-top: 16px;
-    }
+      margin-top: 16px; }
 
     /* ── Newsletter ───────────────────────────────────────────── */
     #newsletter {
       background: linear-gradient(135deg, #0a1628 0%, #1a3a6b 100%);
       padding: 72px 0;
-      color: #fff;
-    }
+      color: #fff; }
     .newsletter-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      align-items: center;
-    }
+      align-items: center; }
     .newsletter-text h2 {
       font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 12px;
-      color: #fff;
-    }
+      color: #fff; }
     .newsletter-text p {
       color: rgba(255,255,255,0.7);
       font-size: 0.97rem;
-      line-height: 1.7;
-    }
+      line-height: 1.7; }
     .newsletter-badge {
       display: inline-block;
       background: rgba(255,255,255,0.12);
@@ -458,30 +387,25 @@
       text-transform: uppercase;
       padding: 4px 12px;
       border-radius: 20px;
-      margin-bottom: 14px;
-    }
+      margin-bottom: 14px; }
     .newsletter-form-box {
       background: rgba(255,255,255,0.07);
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 16px;
-      padding: 32px;
-    }
+      padding: 32px; }
     .newsletter-form-box h3 {
       font-size: 1.1rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 8px;
-    }
+      margin-bottom: 8px; }
     .newsletter-form-box p {
       font-size: 0.85rem;
       color: rgba(255,255,255,0.55);
-      margin-bottom: 20px;
-    }
+      margin-bottom: 20px; }
     .newsletter-input-group {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-    }
+      gap: 12px; }
     .newsletter-input-group input {
       padding: 12px 16px;
       border-radius: 8px;
@@ -490,8 +414,7 @@
       color: #fff;
       font-size: 0.95rem;
       outline: none;
-      transition: border-color 0.2s;
-    }
+      transition: border-color 0.2s; }
     .newsletter-input-group input::placeholder { color: rgba(255,255,255,0.4); }
     .newsletter-input-group input:focus { border-color: #4a9eff; }
     .newsletter-submit {
@@ -504,8 +427,7 @@
       background: #0066cc;
       color: #fff;
       font-weight: 700;
-      transition: background 0.2s, transform 0.15s;
-    }
+      transition: background 0.2s, transform 0.15s; }
     .newsletter-submit:hover { background: #0052a3; transform: translateY(-1px); }
     .newsletter-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
     .newsletter-success {
@@ -517,21 +439,18 @@
       border-radius: 10px;
       color: #86efac;
       font-weight: 600;
-      margin-top: 12px;
-    }
+      margin-top: 12px; }
     .newsletter-perks {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-top: 20px;
-    }
+      margin-top: 20px; }
     .newsletter-perk {
       display: flex;
       align-items: center;
       gap: 10px;
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.7);
-    }
+      color: rgba(255,255,255,0.7); }
     .newsletter-perk svg { flex-shrink: 0; color: #4a9eff; }
     @media (max-width: 768px) {
       .newsletter-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -542,14 +461,12 @@
     footer {
       background: var(--navy);
       color: rgba(255,255,255,0.7);
-      padding: 56px 0 28px;
-    }
+      padding: 56px 0 28px; }
     .footer-grid {
       display: grid;
       grid-template-columns: 1.8fr 1fr 1fr;
       gap: 48px;
-      margin-bottom: 48px;
-    }
+      margin-bottom: 48px; }
     .footer-brand p { font-size: 0.88rem; margin-top: 14px; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 300px; }
     .footer-brand .logo { color: #fff; }
     .footer-col h4 { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
@@ -562,8 +479,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.82rem;
-    }
+      font-size: 0.82rem; }
 
     /* ── Mobile ───────────────────────────────────────────────── */
     @media (max-width: 900px) {
@@ -580,12 +496,9 @@
       .footer-grid { gap: 32px; }
     }
     @media (max-width: 600px) {
-      /* Nav */
       .nav-inner { height: 56px; }
       .nav-cta { padding: 9px 16px; font-size: 0.82rem; }
       .logo { font-size: 1rem; }
-
-      /* Hero */
       #hero { padding: 60px 0 48px; }
       .hero-title { font-size: 1.75rem; }
       .hero-desc { font-size: 0.95rem; }
@@ -595,24 +508,14 @@
       .stat-item { flex: 1; min-width: 80px; }
       .stat-num { font-size: 1.4rem; }
       .hero-badge { font-size: 0.72rem; padding: 5px 12px; }
-
-      /* Trust bar */
       .trust-inner { gap: 8px; }
       .trust-pill { font-size: 0.78rem; padding: 7px 13px; }
-
-      /* Services */
       .service-card { padding: 24px 20px; }
       .section-title { font-size: 1.5rem; }
-
-      /* Why */
       .why-visual { padding: 32px 24px; }
       .why-points { gap: 18px; }
-
-      /* Contact */
       .contact-form { padding: 28px 20px; }
       .contact-info h2 { font-size: 1.4rem; }
-
-      /* Footer */
       .footer-grid { grid-template-columns: 1fr; gap: 24px; }
       footer { padding: 40px 0 24px; }
     }
@@ -620,7 +523,7 @@
 </head>
 <body>
 
-<!-- ══ NAV ══════════════════════════════════════════════════════ -->
+<!-- NAV (updated with Build Your System link) -->
 <nav>
   <div class="container nav-inner">
     <a href="#" class="logo">
@@ -633,23 +536,24 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#why">Why Us</a></li>
       <li><a href="#newsletter">Newsletter</a></li>
+      <li><a href="build-your-system.html" style="color: #1a55af; font-weight: 600;">Build Your System</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="btn btn-primary nav-cta">Get a Free Quote</a>
   </div>
 </nav>
 
-<!-- ══ HERO ═════════════════════════════════════════════════════ -->
+<!-- HERO -->
 <section id="hero">
   <div class="container">
     <div class="hero-grid">
       <div>
         <div class="hero-badge">
           <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6L12 2z"/></svg>
-          Trusted Security &amp; Network Experts — New Jersey
+          Trusted Security & Network Experts — New Jersey
         </div>
         <h1 class="hero-title">
-          Protect &amp; Connect<br>
+          Protect & Connect<br>
           Your Business<br>
           <span>with Confidence</span>
         </h1>
@@ -658,7 +562,7 @@
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-hero-white">Get a Free Quote</a>
-          <a href="#services" class="btn btn-hero-ghost">Explore Services</a>
+          <a href="build-your-system.html" class="btn btn-hero-ghost">Build Your Custom System →</a>
         </div>
         <div class="hero-stats">
           <div class="stat-item">
@@ -678,10 +582,8 @@
       <div class="hero-visual">
         <div class="shield-wrapper">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Shield body -->
             <path d="M50 8 L88 24 L88 52 C88 74 70 90 50 96 C30 90 12 74 12 52 L12 24 Z" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
             <path d="M50 15 L82 29 L82 52 C82 71 66 85 50 91 C34 85 18 71 18 52 L18 29 Z" fill="rgba(59,130,246,0.18)"/>
-            <!-- Lock -->
             <rect x="38" y="50" width="24" height="18" rx="3" fill="rgba(255,255,255,0.9)"/>
             <path d="M43 50 L43 44 A7 7 0 0 1 57 44 L57 50" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="3" stroke-linecap="round"/>
             <circle cx="50" cy="59" r="3" fill="#1a55af"/>
@@ -692,31 +594,19 @@
   </div>
 </section>
 
-<!-- ══ TRUST BAR ════════════════════════════════════════════════ -->
+<!-- TRUST BAR -->
 <div id="trust">
   <div class="container">
     <div class="trust-inner">
-      <div class="trust-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
-        Licensed &amp; Insured
-      </div>
-      <div class="trust-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
-        NJ-Based &amp; Family-Owned
-      </div>
-      <div class="trust-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
-        Residential &amp; Commercial
-      </div>
-      <div class="trust-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
-        Free Consultations
-      </div>
+      <div class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Licensed & Insured</div>
+      <div class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> NJ-Based & Family-Owned</div>
+      <div class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Residential & Commercial</div>
+      <div class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Free Consultations</div>
     </div>
   </div>
 </div>
 
-<!-- ══ SERVICES ═════════════════════════════════════════════════ -->
+<!-- SERVICES -->
 <section id="services">
   <div class="container">
     <div class="services-header">
@@ -725,66 +615,37 @@
       <p class="section-sub">From cabling to cybersecurity, we handle every layer of your infrastructure so you can focus on running your business.</p>
     </div>
     <div class="services-grid">
-
-      <!-- Service 1 -->
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>
-            <line x1="6" y1="6" x2="6.01" y2="6" stroke-width="3" stroke-linecap="round"/>
-            <line x1="6" y1="18" x2="6.01" y2="18" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6" stroke-width="3" stroke-linecap="round"/><line x1="6" y1="18" x2="6.01" y2="18" stroke-width="3" stroke-linecap="round"/></svg></div>
         <h3>Network Installation</h3>
         <p>End-to-end network infrastructure design and installation for offices, warehouses, and commercial properties across New Jersey.</p>
-        <ul class="service-list">
-          <li>Structured cabling &amp; wiring</li>
-          <li>Wi-Fi access point setup</li>
-          <li>Switch &amp; router configuration</li>
-          <li>VoIP &amp; cloud connectivity</li>
-        </ul>
+        <ul class="service-list"><li>Structured cabling & wiring</li><li>Wi-Fi access point setup</li><li>Switch & router configuration</li><li>VoIP & cloud connectivity</li></ul>
       </div>
-
-      <!-- Service 2 -->
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3>Security Installations</h3>
         <p>Physical and electronic security systems professionally installed to protect your people, property, and assets.</p>
-        <ul class="service-list">
-          <li>CCTV &amp; IP camera systems</li>
-          <li>Access control &amp; key fobs</li>
-          <li>Alarm system integration</li>
-          <li>Remote monitoring setup</li>
-        </ul>
+        <ul class="service-list"><li>CCTV & IP camera systems</li><li>Access control & key fobs</li><li>Alarm system integration</li><li>Remote monitoring setup</li></ul>
       </div>
-
-      <!-- Service 3 -->
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M21 2H3v16h5l3 3 3-3h7V2z"/>
-            <line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="13" y2="12"/>
-          </svg>
-        </div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 2H3v16h5l3 3 3-3h7V2z"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="13" y2="12"/></svg></div>
         <h3>Network Security</h3>
         <p>Protect your business from cyber threats with our layered network security solutions — proactive, not reactive.</p>
-        <ul class="service-list">
-          <li>Firewall setup &amp; management</li>
-          <li>VPN &amp; remote access security</li>
-          <li>Network vulnerability audits</li>
-          <li>Ongoing monitoring &amp; patching</li>
-        </ul>
+        <ul class="service-list"><li>Firewall setup & management</li><li>VPN & remote access security</li><li>Network vulnerability audits</li><li>Ongoing monitoring & patching</li></ul>
       </div>
+    </div>
 
+    <!-- NEW CTA to builder -->
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="build-your-system.html" class="btn btn-primary" style="padding: 14px 36px; font-size: 1.05rem;">
+        Design Your Own Custom System →
+      </a>
+      <p style="margin-top: 10px; font-size: 0.9rem; color: var(--gray);">Get an instant itemized quote in under 2 minutes</p>
     </div>
   </div>
 </section>
 
-<!-- ══ WHY US ════════════════════════════════════════════════════ -->
+<!-- WHY US -->
 <section id="why">
   <div class="container">
     <div class="why-grid">
@@ -793,120 +654,59 @@
         <h2 class="section-title">Local Expertise.<br>Enterprise Results.</h2>
         <p class="section-sub">We're not a national call center — we're your neighbors. When something needs fixing, we show up.</p>
         <div class="why-points">
-          <div class="why-point">
-            <div class="why-num">01</div>
-            <div>
-              <h4>Fast Local Response</h4>
-              <p>We're based in New Jersey, so on-site visits happen fast — no waiting weeks for a technician.</p>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-num">02</div>
-            <div>
-              <h4>One Partner, Full Stack</h4>
-              <p>From pulling cable to locking down your firewall — one company handles everything end to end.</p>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-num">03</div>
-            <div>
-              <h4>Transparent Pricing</h4>
-              <p>No surprise invoices. We quote upfront, work efficiently, and only bill for what was agreed.</p>
-            </div>
-          </div>
+          <div class="why-point"><div class="why-num">01</div><div><h4>Fast Local Response</h4><p>We're based in New Jersey, so on-site visits happen fast — no waiting weeks for a technician.</p></div></div>
+          <div class="why-point"><div class="why-num">02</div><div><h4>One Partner, Full Stack</h4><p>From pulling cable to locking down your firewall — one company handles everything end to end.</p></div></div>
+          <div class="why-point"><div class="why-num">03</div><div><h4>Transparent Pricing</h4><p>No surprise invoices. We quote upfront, work efficiently, and only bill for what was agreed.</p></div></div>
         </div>
       </div>
       <div class="why-visual">
         <div class="why-visual-title">Our Process</div>
         <ul class="checklist">
-          <li>
-            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            Free on-site or remote consultation
-          </li>
-          <li>
-            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            Custom proposal tailored to your needs
-          </li>
-          <li>
-            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            Professional installation by certified techs
-          </li>
-          <li>
-            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            Full system testing &amp; walkthrough
-          </li>
-          <li>
-            <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            Ongoing support &amp; maintenance plans
-          </li>
+          <li><div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Free on-site or remote consultation</li>
+          <li><div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Custom proposal tailored to your needs</li>
+          <li><div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Professional installation by certified techs</li>
+          <li><div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Full system testing & walkthrough</li>
+          <li><div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Ongoing support & maintenance plans</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ CONTACT ══════════════════════════════════════════════════ -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info">
         <div class="section-label">Get in Touch</div>
-        <h2>Let's Secure &amp;<br>Connect Your Business</h2>
+        <h2>Let's Secure &<br>Connect Your Business</h2>
         <p>Tell us about your project or ask a question. We respond within one business day — usually much faster.</p>
         <div class="contact-details">
           <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 1.18 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-            </div>
-            <div>
-              <div class="contact-detail-label">Phone</div>
-              <div class="contact-detail-val">(908) 255-0663</div>
-            </div>
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 1.18 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg></div>
+            <div><div class="contact-detail-label">Phone</div><div class="contact-detail-val">(908) 255-0663</div></div>
           </div>
           <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <div class="contact-detail-label">Email</div>
-              <div class="contact-detail-val">info@njcyberguard.com</div>
-            </div>
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="contact-detail-label">Email</div><div class="contact-detail-val">info@njcyberguard.com</div></div>
           </div>
           <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <div class="contact-detail-label">Service Area</div>
-              <div class="contact-detail-val">New Jersey &amp; Surrounding Areas</div>
-            </div>
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="contact-detail-label">Service Area</div><div class="contact-detail-val">New Jersey & Surrounding Areas</div></div>
           </div>
         </div>
       </div>
 
-      <!-- Contact Form -->
       <div class="contact-form">
         <h3>Request a Free Quote</h3>
         <form id="quoteForm" onsubmit="handleSubmit(event)">
           <div class="form-row">
-            <div class="form-group">
-              <label for="fname">First Name *</label>
-              <input type="text" id="fname" placeholder="John" required />
-            </div>
-            <div class="form-group">
-              <label for="lname">Last Name *</label>
-              <input type="text" id="lname" placeholder="Smith" required />
-            </div>
+            <div class="form-group"><label for="fname">First Name *</label><input type="text" id="fname" placeholder="John" required /></div>
+            <div class="form-group"><label for="lname">Last Name *</label><input type="text" id="lname" placeholder="Smith" required /></div>
           </div>
           <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input type="email" id="email" placeholder="john@company.com" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" placeholder="(908) 255-0663" />
-            </div>
+            <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" placeholder="john@company.com" required /></div>
+            <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="(908) 255-0663" /></div>
           </div>
           <div class="form-group">
             <label for="service">Service Needed *</label>
@@ -919,21 +719,16 @@
               <option>Not sure — need a consultation</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="msg">Tell us about your project</label>
-            <textarea id="msg" placeholder="Describe your setup, size of location, current issues or goals..."></textarea>
-          </div>
+          <div class="form-group"><label for="msg">Tell us about your project</label><textarea id="msg" placeholder="Describe your setup, size of location, current issues or goals..."></textarea></div>
           <button type="submit" class="btn btn-primary form-submit">Send Request →</button>
-          <div class="form-success" id="formSuccess">
-            ✅ Message sent! We'll be in touch within 1 business day.
-          </div>
+          <div class="form-success" id="formSuccess">✅ Message sent! We'll be in touch within 1 business day.</div>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ NEWSLETTER ══════════════════════════════════════════════════ -->
+<!-- NEWSLETTER -->
 <section id="newsletter">
   <div class="container">
     <div class="newsletter-inner">
@@ -942,22 +737,10 @@
         <h2>Stay Ahead of NJ Cyber Threats</h2>
         <p>Get weekly cybersecurity news and alerts specific to New Jersey businesses — breaches, vulnerabilities, compliance updates, and expert tips delivered straight to your inbox.</p>
         <div class="newsletter-perks">
-          <div class="newsletter-perk">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Local NJ threat intelligence &amp; incident reports
-          </div>
-          <div class="newsletter-perk">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Cybersecurity tips for small &amp; mid-size businesses
-          </div>
-          <div class="newsletter-perk">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Product spotlights: Ubiquiti, Aqara &amp; more
-          </div>
-          <div class="newsletter-perk">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            No spam — unsubscribe anytime
-          </div>
+          <div class="newsletter-perk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Local NJ threat intelligence & incident reports</div>
+          <div class="newsletter-perk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Cybersecurity tips for small & mid-size businesses</div>
+          <div class="newsletter-perk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Product spotlights: Ubiquiti, Aqara & more</div>
+          <div class="newsletter-perk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No spam — unsubscribe anytime</div>
         </div>
       </div>
       <div class="newsletter-form-box">
@@ -969,55 +752,29 @@
             <input type="email" id="subEmail" placeholder="your@email.com" required />
             <button type="submit" class="newsletter-submit" id="newsletterBtn">Subscribe Free →</button>
           </div>
-          <div class="newsletter-success" id="newsletterSuccess">
-            ✅ You're in! Watch for your first NJ security update soon.
-          </div>
+          <div class="newsletter-success" id="newsletterSuccess">✅ You're in! Watch for your first NJ security update soon.</div>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="logo" style="color:#fff">
-          <div class="logo-icon">
-            <svg viewBox="0 0 24 24" fill="white"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6L12 2zm0 2.18l6 2.7V12c0 4.2-2.8 8.1-6 9.5C8.8 20.1 6 16.2 6 12V6.88l6-2.7z"/></svg>
-          </div>
-          NJ CyberGuard
-        </div>
+        <div class="logo" style="color:#fff"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6L12 2zm0 2.18l6 2.7V12c0 4.2-2.8 8.1-6 9.5C8.8 20.1 6 16.2 6 12V6.88l6-2.7z"/></svg></div>NJ CyberGuard</div>
         <p>Your trusted partner for network installation, security systems, and cybersecurity solutions across New Jersey.</p>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul class="footer-links">
-          <li><a href="#services">Network Installation</a></li>
-          <li><a href="#services">Security Installations</a></li>
-          <li><a href="#services">Network Security</a></li>
-          <li><a href="#contact">Free Consultation</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul class="footer-links">
-          <li><a href="#why">Why Us</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#contact">Get a Quote</a></li>
-        </ul>
-      </div>
+      <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="#services">Network Installation</a></li><li><a href="#services">Security Installations</a></li><li><a href="#services">Network Security</a></li><li><a href="#contact">Free Consultation</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="#why">Why Us</a></li><li><a href="#contact">Contact</a></li><li><a href="#contact">Get a Quote</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 NJ CyberGuard. All rights reserved.</span>
-      <span>Serving New Jersey businesses with pride.</span>
-    </div>
+    <div class="footer-bottom"><span>© 2026 NJ CyberGuard. All rights reserved.</span><span>Serving New Jersey businesses with pride.</span></div>
   </div>
 </footer>
 
 <script>
-  // ── Contact form ──────────────────────────────────────────────
   async function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
@@ -1027,36 +784,22 @@
     successEl.style.display = 'none';
 
     const payload = {
-      fname:   document.getElementById('fname').value.trim(),
-      lname:   document.getElementById('lname').value.trim(),
-      email:   document.getElementById('email').value.trim(),
-      phone:   document.getElementById('phone').value.trim(),
+      fname: document.getElementById('fname').value.trim(),
+      lname: document.getElementById('lname').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
       service: document.getElementById('service').value,
-      msg:     document.getElementById('msg').value.trim()
+      msg: document.getElementById('msg').value.trim()
     };
 
     try {
-      const res = await fetch('/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (res.ok) {
-        successEl.style.display = 'block';
-        e.target.reset();
-      } else {
-        alert('Something went wrong. Please email us directly at info@njcyberguard.com or call (908) 255-0663.');
-      }
-    } catch (err) {
-      alert('Could not send your request. Please email info@njcyberguard.com or call (908) 255-0663.');
-    } finally {
-      btn.textContent = 'Send Request →';
-      btn.disabled = false;
-    }
+      const res = await fetch('/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      if (res.ok) { successEl.style.display = 'block'; e.target.reset(); }
+      else { alert('Something went wrong. Please email us directly at info@njcyberguard.com or call (908) 255-0663.'); }
+    } catch (err) { alert('Could not send your request. Please email info@njcyberguard.com or call (908) 255-0663.'); }
+    finally { btn.textContent = 'Send Request →'; btn.disabled = false; }
   }
 
-  // ── Newsletter signup ─────────────────────────────────────────
   async function handleNewsletterSubmit(e) {
     e.preventDefault();
     const btn = document.getElementById('newsletterBtn');
@@ -1065,40 +808,21 @@
     btn.disabled = true;
     successEl.style.display = 'none';
 
-    const payload = {
-      email: document.getElementById('subEmail').value.trim(),
-      name:  document.getElementById('subName').value.trim()
-    };
+    const payload = { email: document.getElementById('subEmail').value.trim(), name: document.getElementById('subName').value.trim() };
 
     try {
-      const res = await fetch('/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (res.ok) {
-        successEl.style.display = 'block';
-        e.target.reset();
-      } else {
-        alert('Subscription failed. Please try again or email info@njcyberguard.com.');
-      }
-    } catch (err) {
-      alert('Could not subscribe. Please try again later.');
-    } finally {
-      btn.textContent = 'Subscribe Free →';
-      btn.disabled = false;
-    }
+      const res = await fetch('/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      if (res.ok) { successEl.style.display = 'block'; e.target.reset(); }
+      else { alert('Subscription failed. Please try again or email info@njcyberguard.com.'); }
+    } catch (err) { alert('Could not subscribe. Please try again later.'); }
+    finally { btn.textContent = 'Subscribe Free →'; btn.disabled = false; }
   }
 
-  // Smooth active nav highlight on scroll
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 80) current = s.id;
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
     navLinks.forEach(a => {
       a.style.color = a.getAttribute('href') === '#' + current ? '#1a1a2e' : '';
       a.style.fontWeight = a.getAttribute('href') === '#' + current ? '700' : '';
