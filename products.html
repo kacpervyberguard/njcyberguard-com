@@ -1,1080 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Catalog | NJ CyberGuard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Products | NJ CyberGuard</title>
   <style>
-    :root{--navy:#0d1b3e;--blue:#1a55af;--sky:#3b82f6;--accent:#e8f0fe;--light:#f7f9ff;--gray:#64748b;--border:#e2e8f0}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#1e293b;background:#fff}
-    a{color:inherit;text-decoration:none}
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+    
+    :root {
+      --navy: #0d1b3e;
+      --blue: #1a55af;
+      --sky: #3b82f6;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --border: #e2e8f0;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #1e2937;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-    /* NAV */
-    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-    .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 24px}
-    .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;color:var(--navy)}
-    .logo-icon{width:36px;height:36px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center}
-    .logo-icon svg{width:20px;height:20px;fill:#fff}
-    .nav-links{display:flex;align-items:center;gap:28px;font-size:.9rem}
-    .nav-links a{color:var(--gray);font-weight:500;transition:color .15s}
-    .nav-links a:hover{color:var(--navy)}
-    .nav-links a.active{color:var(--navy);font-weight:700}
-    .nav-cta{background:var(--navy);color:#fff!important;padding:9px 18px;border-radius:7px;font-weight:600;font-size:.88rem;transition:background .15s}
-    .nav-cta:hover{background:var(--blue)!important}
-    @media(max-width:640px){.nav-links{display:none}}
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--blue);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-icon svg { width: 22px; height: 22px; fill: white; }
 
-    /* HERO */
-    .page-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);color:#fff;text-align:center;padding:56px 24px 48px}
-    .page-hero .label{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 14px;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
-    .page-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:12px;letter-spacing:-.02em}
-    .page-hero p{font-size:1rem;opacity:.82;max-width:580px;margin:0 auto;line-height:1.6}
+    .hero {
+      background: linear-gradient(135deg, #0d1b3e 0%, #1a3068 100%);
+      color: white;
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 620px;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.85);
+    }
 
-    /* FILTER BAR */
-    .filter-wrap{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:64px;z-index:90}
-    .filter-bar{max-width:1100px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;gap:7px;align-items:center}
-    .filter-pill{border:1.5px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.8rem;font-weight:600;color:var(--gray);background:#fff;cursor:pointer;transition:all .15s;white-space:nowrap}
-    .filter-pill:hover{border-color:var(--sky);color:var(--navy)}
-    .filter-pill.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .section {
+      padding: 64px 0;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .section-subtitle {
+      color: var(--gray);
+      margin-bottom: 32px;
+    }
 
-    /* CATALOG */
-    .catalog-wrap{max-width:1100px;margin:0 auto;padding:40px 24px 80px}
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
 
-    /* BRAND SECTION */
-    .brand-section{margin-bottom:52px}
-    .brand-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-    .brand-label{font-size:1.05rem;font-weight:800;color:var(--navy);white-space:nowrap}
-    .brand-divider{flex:1;height:1px;background:var(--border)}
-    .brand-sub{font-size:.78rem;color:var(--gray);white-space:nowrap}
+    .product-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
 
-    /* CARD GRID */
-    .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    @media(max-width:860px){.card-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:520px){.card-grid{grid-template-columns:1fr}}
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #f8fafc;
+    }
 
-    /* PRODUCT CARD */
-    .product-card{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;animation:cardIn .22s ease both}
-    .product-card:hover{box-shadow:0 8px 28px rgba(13,27,62,.1);transform:translateY(-2px)}
-    .product-card.card-hidden{display:none}
-    @keyframes cardIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    .product-info {
+      padding: 20px;
+    }
+    .product-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .product-desc {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      min-height: 48px;
+    }
+    .product-price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
 
-    /* CARD IMAGE */
-    .card-img{position:relative;height:200px;overflow:hidden;flex-shrink:0;background:linear-gradient(135deg,var(--light),var(--accent))}
-    .card-img-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
-    .card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      border: none;
+    }
+    .btn-primary:hover { background: #1447a0; }
 
-    /* CARD BODY */
-    .card-body{padding:16px;display:flex;flex-direction:column;flex:1;gap:10px}
-    .card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-    .card-price{font-size:1.1rem;font-weight:800;color:var(--blue)}
-    .card-name{font-size:.93rem;font-weight:700;color:var(--navy);line-height:1.35}
+    .category-header {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 48px 0 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+    }
 
-    /* CONNECTIVITY BADGES */
-    .conn-badge{display:inline-flex;align-items:center;font-size:.7rem;font-weight:700;border-radius:5px;padding:3px 8px;letter-spacing:.02em;flex-shrink:0}
-    .conn-wifi{background:#dbeafe;color:#1d4ed8}
-    .conn-poe{background:#fef3c7;color:#b45309}
-    .conn-zigbee{background:#f3e8ff;color:#7e22ce}
-    .conn-zwave{background:#dcfce7;color:#15803d}
-    .conn-solar{background:#fef9c3;color:#854d0e}
-    .conn-wired{background:#fef3c7;color:#92400e}
-    .conn-rf{background:#f1f5f9;color:#475569}
-    .conn-nas{background:#e0f2fe;color:#0369a1}
-    .conn-matter{background:#e0e7ff;color:#3730a3}
-
-    /* SPECS */
-    .card-specs{list-style:none;display:flex;flex-direction:column;gap:4px}
-    .card-specs li{font-size:.79rem;color:var(--gray);padding-left:14px;position:relative;line-height:1.45}
-    .card-specs li::before{content:'·';position:absolute;left:3px;color:var(--sky);font-weight:900;font-size:1rem;line-height:1.1}
-
-    /* ECOSYSTEM PILLS */
-    .card-eco{display:flex;flex-wrap:wrap;gap:5px}
-    .eco-pill{font-size:.68rem;font-weight:600;padding:2px 7px;border-radius:10px;border:1px solid}
-    .eco-apple{background:#f5f5f7;border-color:#c8c8c8;color:#1d1d1f}
-    .eco-google{background:#fff8e1;border-color:#f9ab00;color:#b06000}
-    .eco-alexa{background:#e0f7fa;border-color:#00acc1;color:#00606a}
-    .eco-ha{background:#e3f3fd;border-color:#41bdf5;color:#005f8e}
-    .eco-smartthings{background:#eaecfb;border-color:#5c6bc0;color:#283593}
-
-    /* CARD ACTIONS */
-    .card-actions{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:6px}
-    .card-cta{display:block;text-align:center;padding:9px;background:var(--navy);color:#fff;border-radius:8px;font-size:.82rem;font-weight:700;transition:background .15s}
-    .card-cta:hover{background:var(--blue)}
-    .card-mfr{text-align:center;font-size:.77rem;color:var(--sky);font-weight:600;transition:color .15s}
-    .card-mfr:hover{color:var(--blue)}
-
-    /* FOOTER */
-    footer{background:var(--navy);color:rgba(255,255,255,.75);padding:48px 24px 24px}
-    .footer-inner{max-width:1100px;margin:0 auto}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
-    @media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
-    .footer-brand p{font-size:.88rem;margin-top:10px;opacity:.75;line-height:1.55}
-    footer h4{color:#fff;font-size:.85rem;font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em}
-    .footer-links{list-style:none}
-    .footer-links li{margin-bottom:8px}
-    .footer-links a{font-size:.85rem;opacity:.75;transition:opacity .15s}
-    .footer-links a:hover{opacity:1}
-    .footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.8rem;opacity:.6}
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 0 32px;
+      margin-top: 80px;
+    }
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="logo">
+<header>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
       <div class="logo-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6L12 2zm0 2.18l6 2.7V12c0 4.2-2.8 8.1-6 9.5C8.8 20.1 6 16.2 6 12V6.88l6-2.7z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6L12 2z"/></svg>
       </div>
       NJ CyberGuard
     </a>
-    <div class="nav-links">
-      <a href="/#services">Services</a>
-      <a href="/products" class="active">Products</a>
-      <a href="/#why">Why Us</a>
-      <a href="/#contact">Contact</a>
-    </div>
-    <a href="/build-your-system" class="nav-cta">Get a Quote</a>
+    <a href="index.html" style="color: var(--gray); font-weight: 500;">← Back to Home</a>
   </div>
-</nav>
+</header>
 
-<div class="page-hero">
-  <div class="label">NJ CyberGuard</div>
-  <h1>Product Catalog</h1>
-  <p>Browse our full lineup — click any product in the System Builder to jump here for specs, photos, and more.</p>
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Professional Security Products</h1>
+    <p>Enterprise-grade cameras, smart locks, sensors, and networking equipment trusted by NJ businesses and homeowners.</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- Security Cameras -->
+  <div class="section">
+    <h2 class="category-header">Security Cameras</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://picsum.photos/id/1015/600/400" alt="Alarm.com Outdoor Camera" class="product-image">
+        <div class="product-info">
+          <div class="product-name">Alarm.com Outdoor Camera</div>
+          <div class="product-desc">4MP bullet camera with night vision, two-way audio, and integrated spotlight. Professional-grade.</div>
+          <div class="product-price">$320 – $420</div>
+          <a href="build-your-system.html" class="btn btn-primary" style="width:100%;">Customize Quote</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://picsum.photos/id/1033/600/400" alt="Eufy 2K Security Camera" class="product-image">
+        <div class="product-info">
+          <div class="product-name">Eufy SoloCam S220 (2K)</div>
+          <div class="product-desc">Wireless solar-powered 2K camera with local storage. No monthly fees. Excellent for privacy-focused installs.</div>
+          <div class="product-price">$180 – $280</div>
+          <a href="build-your-system.html" class="btn btn-primary" style="width:100%;">Customize Quote</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://picsum.photos/id/106/600/400" alt="Ubiquiti UniFi G5 Bullet Camera" class="product-image">
+        <div class="product-info">
+          <div class="product-name">Ubiquiti UniFi G5 Bullet</div>
+          <div class="product-desc">4K resolution, excellent low-light performance, and seamless integration with UniFi Protect.</div>
+          <div class="product-price">$380 – $480</div>
+          <a href="build-your-system.html" class="btn btn-primary" style="width:100%;">Customize Quote</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Video Doorbells -->
+  <div class="section">
+    <h2 class="category-header">Video Doorbells</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://picsum.photos/id/1074/600/400" alt="Aqara Video Doorbell G4" class="product-image">
+        <div class="product-info">
+          <div class="product-name">Aqara Video Doorbell G4</div>
+          <div class="product-desc">2K resolution, mmWave motion detection, local storage option, and works as a smart home hub.</div>
+          <div class="product-price">$240 – $320</div>
+          <a href="build-your-system.html" class="btn btn-primary" style="width:100%;">Customize Quote</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://picsum.photos/id/1018/600/400" alt="Alarm.com Video Doorbell" class="product-image">
+        <div class="product-info">
+          <div class="product-name">Alarm.com Video Doorbell</div>
+          <div class="product-desc">Full integration with Alarm.com platform, two-way audio, and professional monitoring support.</div>
+          <div class="product-price">$280 – $380</div>
+          <a href="build-your-system.html" class="btn btn-primary" style="width:100%;">Customize Quote</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Smart Locks -->
+  <div class="section">
+    <h2 class="category-header">Smart Locks</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://picsum.photos/id/1060/600/400" alt="Schlage Encode Smart Lock" class="product-image">
+        <div class="product-info">
+          <div class="product-name">Schlage Encode Smart WiFi Deadbolt</div>
+          <div class="product-desc">Touchscreen keypad, WiFi connectivity, works with Alarm.com, Schlage Home app, and major smart home platforms.</div>
+          <div class="product-price">$220 – $320</div>
+          <a href="build-your-system.html" class="btn btn-primary" style="width:100%;">Customize Quote</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Sensors -->
+  <div class="section">
+    <h2 class="category-header">Sensors & Detectors</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-info" style="padding-top: 40px; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 16px;">🔔</div>
+          <div class="product-name">Aqara Door & Window Sensors</div>
+          <div class="product-desc">Reliable Zigbee sensors. Long battery life. Works with most hubs.</div>
+          <div class="product-price">$38 – $65 each</div>
+          <a href="build-your-system.html" class="btn btn-primary" style="width:100%; margin-top: 20px;">Customize Quote</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info" style="padding-top: 40px; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 16px;">🔊</div>
+          <div class="product-name">Professional Glass Break + Motion Sensors</div>
+          <div class="product-desc">High-sensitivity sensors for commercial and high-security residential installs.</div>
+          <div class="product-price">$65 – $120 each</div>
+          <a href="build-your-system.html" class="btn btn-primary" style="width:100%; margin-top: 20px;">Customize Quote</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Networking -->
+  <div class="section">
+    <h2 class="category-header">Networking & Cyber Protection</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-info" style="padding-top: 40px; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 16px;">🌐</div>
+          <div class="product-name">Ubiquiti UniFi Dream Machine</div>
+          <div class="product-desc">All-in-one router, switch, and Protect NVR. Enterprise-grade cybersecurity.</div>
+          <div class="product-price">$650 – $950</div>
+          <a href="build-your-system.html" class="btn btn-primary" style="width:100%; margin-top: 20px;">Customize Quote</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
-
-<div class="filter-wrap">
-  <div class="filter-bar">
-    <button class="filter-pill active" data-filter="all"       onclick="filterBrand(this)">All</button>
-    <button class="filter-pill"        data-filter="eufy"      onclick="filterBrand(this)">Eufy</button>
-    <button class="filter-pill"        data-filter="aqara"     onclick="filterBrand(this)">Aqara</button>
-    <button class="filter-pill"        data-filter="reolink"   onclick="filterBrand(this)">Reolink</button>
-    <button class="filter-pill"        data-filter="ubiquiti"  onclick="filterBrand(this)">Ubiquiti</button>
-    <button class="filter-pill"        data-filter="august"    onclick="filterBrand(this)">August</button>
-    <button class="filter-pill"        data-filter="schlage"   onclick="filterBrand(this)">Schlage</button>
-    <button class="filter-pill"        data-filter="yale"      onclick="filterBrand(this)">Yale</button>
-    <button class="filter-pill"        data-filter="lutron"    onclick="filterBrand(this)">Lutron</button>
-    <button class="filter-pill"        data-filter="wyze"      onclick="filterBrand(this)">Wyze</button>
-    <button class="filter-pill"        data-filter="synology"  onclick="filterBrand(this)">Synology</button>
-    <button class="filter-pill"        data-filter="kasa"      onclick="filterBrand(this)">TP-Link / Kasa</button>
-  </div>
-</div>
-
-<div class="catalog-wrap">
-
-  <!-- ══ EUFY ══════════════════════════════════════════════════════ -->
-  <div class="brand-section" data-section="eufy">
-    <div class="brand-header">
-      <span class="brand-label">Eufy</span>
-      <div class="brand-divider"></div>
-      <span class="brand-sub">Cameras &amp; Doorbells</span>
-    </div>
-    <div class="card-grid">
-
-      <article id="eufy_indoor" class="product-card" data-brand="eufy">
-        <div class="card-img">
-          <div class="card-img-fallback">📷</div>
-          <img src="https://m.media-amazon.com/images/I/61r5bJEnwEL._AC_SL1500_.jpg" alt="Eufy Indoor Cam 2K" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-wifi">WiFi</span>
-            <span class="card-price">$64</span>
-          </div>
-          <h3 class="card-name">Eufy Indoor Cam 2K</h3>
-          <ul class="card-specs">
-            <li>2K resolution · Pan/Tilt 360°</li>
-            <li>2-way audio</li>
-            <li>Local storage — no subscription</li>
-            <li>Motion tracking</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-google">Google Home</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.eufylife.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <span id="eufy_doorbell" style="display:none"></span>
-      <span id="eufy_db_wired" style="display:none"></span>
-      <article id="eufy_doorbell_wired" class="product-card" data-brand="eufy">
-        <div class="card-img">
-          <div class="card-img-fallback">🔔</div>
-          <img src="https://m.media-amazon.com/images/I/61P9T+MKDPL._AC_SL1500_.jpg" alt="Eufy Video Doorbell 2K Wired" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-wired">Wired</span>
-            <span class="card-price">$169</span>
-          </div>
-          <h3 class="card-name">Eufy Video Doorbell 2K (Wired)</h3>
-          <ul class="card-specs">
-            <li>2K resolution</li>
-            <li>Local storage — no monthly fee</li>
-            <li>Requires existing doorbell wiring</li>
-            <li>160° field of view</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-google">Google Home</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.eufylife.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="eufy_db_dual" class="product-card" data-brand="eufy">
-        <div class="card-img">
-          <div class="card-img-fallback">🔔</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-wired">Wired</span>
-            <span class="card-price">$229</span>
-          </div>
-          <h3 class="card-name">Eufy E340 Dual Lens Doorbell</h3>
-          <ul class="card-specs">
-            <li>2K main + color floodlight lens</li>
-            <li>180° combined field of view</li>
-            <li>Package detection</li>
-            <li>Wired power</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-google">Google Home</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.eufylife.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <span id="eufy_outdoor" style="display:none"></span>
-      <article id="eufy_solar" class="product-card" data-brand="eufy">
-        <div class="card-img">
-          <div class="card-img-fallback">☀️</div>
-          <img src="https://m.media-amazon.com/images/I/71oC5i4BHSL._AC_SL1500_.jpg" alt="Eufy SoloCam S230" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-solar">Solar / WiFi</span>
-            <span class="card-price">$139</span>
-          </div>
-          <h3 class="card-name">Eufy SoloCam S230 (Solar)</h3>
-          <ul class="card-specs">
-            <li>2K resolution</li>
-            <li>Solar powered — truly wireless</li>
-            <li>Color night vision</li>
-            <li>Local storage — no subscription</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-google">Google Home</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.eufylife.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <!-- ══ AQARA ═════════════════════════════════════════════════════ -->
-  <div class="brand-section" data-section="aqara">
-    <div class="brand-header">
-      <span class="brand-label">Aqara</span>
-      <div class="brand-divider"></div>
-      <span class="brand-sub">Cameras · Sensors · Locks · Switches</span>
-    </div>
-    <div class="card-grid">
-
-      <article id="aqara_g3" class="product-card" data-brand="aqara">
-        <div class="card-img">
-          <div class="card-img-fallback">📷</div>
-          <img src="https://m.media-amazon.com/images/I/61YqGP8D4pL._AC_SL1500_.jpg" alt="Aqara Camera Hub G3" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-zigbee">Zigbee Hub</span>
-            <span class="card-price">$89</span>
-          </div>
-          <h3 class="card-name">Aqara Camera Hub G3</h3>
-          <ul class="card-specs">
-            <li>1080p resolution</li>
-            <li>AI facial &amp; gesture recognition</li>
-            <li>Acts as Zigbee hub</li>
-            <li>IR remote control · Local processing</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-ha">Home Assistant</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.aqara.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <span id="aqara_doorbell" style="display:none"></span>
-      <article id="aqara_g4" class="product-card" data-brand="aqara">
-        <div class="card-img">
-          <div class="card-img-fallback">🔔</div>
-          <img src="https://m.media-amazon.com/images/I/61X4hH3KPZL._AC_SL1500_.jpg" alt="Aqara Video Doorbell G4" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-wifi">WiFi</span>
-            <span class="card-price">$239</span>
-          </div>
-          <h3 class="card-name">Aqara Video Doorbell G4</h3>
-          <ul class="card-specs">
-            <li>HomeKit Secure Video</li>
-            <li>Facial recognition</li>
-            <li>Chime included · WiFi or wired power</li>
-            <li>Package detection</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-ha">Home Assistant</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.aqara.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="aqara_door" class="product-card" data-brand="aqara">
-        <div class="card-img">
-          <div class="card-img-fallback">🚪</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-matter">Zigbee / Matter</span>
-            <span class="card-price">$22</span>
-          </div>
-          <h3 class="card-name">Aqara Door / Window Sensor P2</h3>
-          <ul class="card-specs">
-            <li>Zigbee &amp; Matter</li>
-            <li>2-year battery life</li>
-            <li>Magnetic separation detection</li>
-            <li>Works with existing Zigbee hubs</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-ha">Home Assistant</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-google">Google Home</span>
-            <span class="eco-pill eco-smartthings">SmartThings</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.aqara.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="aqara_motion" class="product-card" data-brand="aqara">
-        <div class="card-img">
-          <div class="card-img-fallback">🚨</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-zigbee">Zigbee</span>
-            <span class="card-price">$28</span>
-          </div>
-          <h3 class="card-name">Aqara Motion Sensor P1</h3>
-          <ul class="card-specs">
-            <li>170° detection angle</li>
-            <li>Adjustable sensitivity</li>
-            <li>Tamper detection</li>
-            <li>5-year battery life</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-ha">Home Assistant</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.aqara.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="aqara_fp2" class="product-card" data-brand="aqara">
-        <div class="card-img">
-          <div class="card-img-fallback">📡</div>
-          <img src="https://m.media-amazon.com/images/I/61n8xzx-6GL._AC_SL1500_.jpg" alt="Aqara Presence Sensor FP2" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-wifi">WiFi</span>
-            <span class="card-price">$84</span>
-          </div>
-          <h3 class="card-name">Aqara Presence Sensor FP2</h3>
-          <ul class="card-specs">
-            <li>mmWave radar technology</li>
-            <li>Zone-level presence detection</li>
-            <li>USB-C powered — no battery</li>
-            <li>Eliminates false motion alarms</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-ha">Home Assistant</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.aqara.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <span id="aqara_lock" style="display:none"></span>
-      <article id="aqara_u100" class="product-card" data-brand="aqara">
-        <div class="card-img">
-          <div class="card-img-fallback">🔐</div>
-          <img src="https://m.media-amazon.com/images/I/61Y9YzBlqaL._AC_SL1500_.jpg" alt="Aqara U100 Smart Lock" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-zigbee">Zigbee</span>
-            <span class="card-price">$189</span>
-          </div>
-          <h3 class="card-name">Aqara U100 Smart Lock</h3>
-          <ul class="card-specs">
-            <li>Fingerprint + NFC + keypad + app</li>
-            <li>HomeKit NFC unlock</li>
-            <li>Auto-lock · Passage mode</li>
-            <li>Zigbee connectivity</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-ha">Home Assistant</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.aqara.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="aqara_sw1" class="product-card" data-brand="aqara">
-        <div class="card-img">
-          <div class="card-img-fallback">💡</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-zigbee">Zigbee</span>
-            <span class="card-price">$26</span>
-          </div>
-          <h3 class="card-name">Aqara H1 Single Switch</h3>
-          <ul class="card-specs">
-            <li>No neutral wire required</li>
-            <li>Screwless design</li>
-            <li>Fits standard US gang box</li>
-            <li>Scene trigger support</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-ha">Home Assistant</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.aqara.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="aqara_sw2" class="product-card" data-brand="aqara">
-        <div class="card-img">
-          <div class="card-img-fallback">💡</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-zigbee">Zigbee</span>
-            <span class="card-price">$36</span>
-          </div>
-          <h3 class="card-name">Aqara H1 Double Switch</h3>
-          <ul class="card-specs">
-            <li>Dual independent circuits</li>
-            <li>No neutral wire required</li>
-            <li>Fits double gang box</li>
-            <li>Zigbee connectivity</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-ha">Home Assistant</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.aqara.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <!-- ══ REOLINK ════════════════════════════════════════════════════ -->
-  <div class="brand-section" data-section="reolink">
-    <div class="brand-header">
-      <span class="brand-label">Reolink</span>
-      <div class="brand-divider"></div>
-      <span class="brand-sub">Cameras &amp; Doorbells</span>
-    </div>
-    <div class="card-grid">
-
-      <article id="reolink_e1" class="product-card" data-brand="reolink">
-        <div class="card-img">
-          <div class="card-img-fallback">📷</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-wifi">WiFi</span>
-            <span class="card-price">$69</span>
-          </div>
-          <h3 class="card-name">Reolink E1 Pro 4MP</h3>
-          <ul class="card-specs">
-            <li>4MP resolution</li>
-            <li>RTSP stream · 2-way audio</li>
-            <li>Local storage (microSD)</li>
-            <li>Home Assistant native — no subscription</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-ha">Home Assistant</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-google">Google Home</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://reolink.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <span id="reolink_doorbell" style="display:none"></span>
-      <article id="reolink_db" class="product-card" data-brand="reolink">
-        <div class="card-img">
-          <div class="card-img-fallback">🔔</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-wifi">WiFi</span>
-            <span class="card-price">$159</span>
-          </div>
-          <h3 class="card-name">Reolink Video Doorbell WiFi</h3>
-          <ul class="card-specs">
-            <li>5MP resolution</li>
-            <li>No subscription · RTSP</li>
-            <li>Home Assistant compatible</li>
-            <li>Solar-ready · Smart detection</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-ha">Home Assistant</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-google">Google Home</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://reolink.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="reolink_argus" class="product-card" data-brand="reolink">
-        <div class="card-img">
-          <div class="card-img-fallback">📹</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-solar">WiFi / Solar</span>
-            <span class="card-price">$119</span>
-          </div>
-          <h3 class="card-name">Reolink Argus 3 Pro</h3>
-          <ul class="card-specs">
-            <li>2K resolution</li>
-            <li>Color night vision · IP65</li>
-            <li>Solar panel compatible</li>
-            <li>RTSP · Home Assistant · Smart alerts</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-ha">Home Assistant</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-google">Google Home</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://reolink.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <span id="reolink_rlc810" style="display:none"></span>
-      <article id="reolink_810a" class="product-card" data-brand="reolink">
-        <div class="card-img">
-          <div class="card-img-fallback">📹</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-poe">PoE / Wired</span>
-            <span class="card-price">$89</span>
-          </div>
-          <h3 class="card-name">Reolink RLC-810A 4K PoE</h3>
-          <ul class="card-specs">
-            <li>4K 8MP resolution</li>
-            <li>PoE powered</li>
-            <li>Smart detection — person / vehicle / animal</li>
-            <li>RTSP · Home Assistant — no subscription</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-ha">Home Assistant</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://reolink.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <!-- ══ UBIQUITI ════════════════════════════════════════════════════ -->
-  <div class="brand-section" data-section="ubiquiti">
-    <div class="brand-header">
-      <span class="brand-label">Ubiquiti UniFi</span>
-      <div class="brand-divider"></div>
-      <span class="brand-sub">Professional PoE Cameras</span>
-    </div>
-    <div class="card-grid">
-
-      <article id="ubiquiti_g4i" class="product-card" data-brand="ubiquiti">
-        <div class="card-img">
-          <div class="card-img-fallback">📹</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-poe">PoE / Wired</span>
-            <span class="card-price">$99</span>
-          </div>
-          <h3 class="card-name">Ubiquiti G4 Instant</h3>
-          <ul class="card-specs">
-            <li>4MP resolution · Wide-angle</li>
-            <li>PoE powered</li>
-            <li>Indoor/outdoor · UniFi Protect</li>
-            <li>Local recording · AI detection</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-ha">Home Assistant</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://store.ui.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <span id="ubiquiti_g4" style="display:none"></span>
-      <article id="ubiquiti_g4b" class="product-card" data-brand="ubiquiti">
-        <div class="card-img">
-          <div class="card-img-fallback">📹</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-poe">PoE / Wired</span>
-            <span class="card-price">$139</span>
-          </div>
-          <h3 class="card-name">Ubiquiti G4 Bullet</h3>
-          <ul class="card-specs">
-            <li>4MP resolution</li>
-            <li>PoE · Varifocal lens</li>
-            <li>IP67 all-weather · UniFi Protect</li>
-            <li>AI vehicle / person detection</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-ha">Home Assistant</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://store.ui.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="ubiquiti_g5pro" class="product-card" data-brand="ubiquiti">
-        <div class="card-img">
-          <div class="card-img-fallback">📹</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-poe">PoE / Wired</span>
-            <span class="card-price">$219</span>
-          </div>
-          <h3 class="card-name">Ubiquiti G5 Pro 4K</h3>
-          <ul class="card-specs">
-            <li>4K 8MP resolution</li>
-            <li>PoE · Motorized zoom</li>
-            <li>AI detection · UniFi Protect</li>
-            <li>Best-in-class image quality</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-ha">Home Assistant</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://store.ui.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <!-- ══ SMART LOCKS ════════════════════════════════════════════════ -->
-  <div class="brand-section" data-section="smart-locks">
-    <div class="brand-header">
-      <span class="brand-label">Smart Locks</span>
-      <div class="brand-divider"></div>
-      <span class="brand-sub">August · Schlage · Yale</span>
-    </div>
-    <div class="card-grid">
-
-      <article id="august_gen4" class="product-card" data-brand="august">
-        <div class="card-img">
-          <div class="card-img-fallback">🔐</div>
-          <img src="https://m.media-amazon.com/images/I/61lf0IWZPBL._AC_SL1500_.jpg" alt="August Smart Lock Gen 4" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-wifi">WiFi</span>
-            <span class="card-price">$199</span>
-          </div>
-          <h3 class="card-name">August Smart Lock Gen 4</h3>
-          <ul class="card-specs">
-            <li>Fits existing deadbolt — no locksmith</li>
-            <li>WiFi built-in</li>
-            <li>DoorSense open/closed detection</li>
-            <li>Auto-lock · Guest access</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-google">Google Home</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-smartthings">SmartThings</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://august.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <span id="schlage" style="display:none"></span>
-      <article id="schlage_plus" class="product-card" data-brand="schlage">
-        <div class="card-img">
-          <div class="card-img-fallback">🔐</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-wifi">WiFi</span>
-            <span class="card-price">$229</span>
-          </div>
-          <h3 class="card-name">Schlage Encode Plus</h3>
-          <ul class="card-specs">
-            <li>Built-in WiFi + Apple Home (no hub needed)</li>
-            <li>Grade 1 security — highest rating</li>
-            <li>Keypad + app control</li>
-            <li>Built-in alarm sensor</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.schlage.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="yale_assure2" class="product-card" data-brand="yale">
-        <div class="card-img">
-          <div class="card-img-fallback">🔐</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-zwave">Z-Wave / WiFi</span>
-            <span class="card-price">$219</span>
-          </div>
-          <h3 class="card-name">Yale Assure Lock 2 Plus</h3>
-          <ul class="card-specs">
-            <li>Z-Wave + Zigbee + WiFi</li>
-            <li>Works with all major ecosystems</li>
-            <li>Keypad · Slim design</li>
-            <li>Alexa Guard integration</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-google">Google Home</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-smartthings">SmartThings</span>
-            <span class="eco-pill eco-ha">Home Assistant</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.yalelock.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <!-- ══ LIGHTING, SWITCHES & MORE ════════════════════════════════ -->
-  <div class="brand-section" data-section="lighting">
-    <div class="brand-header">
-      <span class="brand-label">Lighting, Switches &amp; More</span>
-      <div class="brand-divider"></div>
-      <span class="brand-sub">Lutron · TP-Link/Kasa · Wyze</span>
-    </div>
-    <div class="card-grid">
-
-      <span id="lutron_caseta" style="display:none"></span>
-      <article id="lutron" class="product-card" data-brand="lutron">
-        <div class="card-img">
-          <div class="card-img-fallback">💡</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-rf">RF (ClearConnect)</span>
-            <span class="card-price">$59</span>
-          </div>
-          <h3 class="card-name">Lutron Caseta Dimmer</h3>
-          <ul class="card-specs">
-            <li>ClearConnect RF — most reliable smart switch</li>
-            <li>No neutral wire required</li>
-            <li>Pairs with Pico remote</li>
-            <li>Never drops off network</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-apple">Apple Home</span>
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-google">Google Home</span>
-            <span class="eco-pill eco-smartthings">SmartThings</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.casetawireless.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="kasa_ep25" class="product-card" data-brand="kasa">
-        <div class="card-img">
-          <div class="card-img-fallback">🔌</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-wifi">WiFi</span>
-            <span class="card-price">$25</span>
-          </div>
-          <h3 class="card-name">Kasa Smart Plug EP25</h3>
-          <ul class="card-specs">
-            <li>Energy monitoring</li>
-            <li>Compact design</li>
-            <li>Schedule &amp; timer</li>
-            <li>Away mode</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-google">Google Home</span>
-            <span class="eco-pill eco-smartthings">SmartThings</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.kasasmart.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="wyze_v4" class="product-card" data-brand="wyze">
-        <div class="card-img">
-          <div class="card-img-fallback">📷</div>
-          <img src="https://m.media-amazon.com/images/I/61RxVtcuEAL._AC_SL1500_.jpg" alt="Wyze Cam v4" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-wifi">WiFi</span>
-            <span class="card-price">$39</span>
-          </div>
-          <h3 class="card-name">Wyze Cam v4</h3>
-          <ul class="card-specs">
-            <li>2.5K resolution</li>
-            <li>Color night vision · Spotlight</li>
-            <li>2-way audio · microSD</li>
-            <li>Budget-friendly entry camera</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-alexa">Alexa</span>
-            <span class="eco-pill eco-google">Google Home</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.wyze.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <!-- ══ SYNOLOGY ════════════════════════════════════════════════════ -->
-  <div class="brand-section" data-section="synology">
-    <div class="brand-header">
-      <span class="brand-label">Synology</span>
-      <div class="brand-divider"></div>
-      <span class="brand-sub">NAS Storage &amp; NVR</span>
-    </div>
-    <div class="card-grid">
-
-      <article id="nas_2bay_device" class="product-card" data-brand="synology">
-        <div class="card-img">
-          <div class="card-img-fallback">🗄️</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-nas">Ethernet / NAS</span>
-            <span class="card-price">$299</span>
-          </div>
-          <h3 class="card-name">Synology DiskStation DS223</h3>
-          <ul class="card-specs">
-            <li>2-bay NAS · Up to 32TB</li>
-            <li>Remote access</li>
-            <li>Surveillance Station NVR for cameras</li>
-            <li>Automatic backup · Docker support</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-ha">Home Assistant</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.synology.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="nas_4bay_device" class="product-card" data-brand="synology">
-        <div class="card-img">
-          <div class="card-img-fallback">🗄️</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="conn-badge conn-nas">Ethernet / NAS</span>
-            <span class="card-price">$449</span>
-          </div>
-          <h3 class="card-name">Synology DiskStation DS423+</h3>
-          <ul class="card-specs">
-            <li>4-bay NAS · Intel Celeron · Up to 64TB</li>
-            <li>RAID support</li>
-            <li>Surveillance Station NVR · VPN server</li>
-            <li>Docker support</li>
-          </ul>
-          <div class="card-eco">
-            <span class="eco-pill eco-ha">Home Assistant</span>
-          </div>
-          <div class="card-actions">
-            <a href="/build-your-system" class="card-cta">Add to Your Quote →</a>
-            <a href="https://www.synology.com" class="card-mfr" target="_blank" rel="noopener">Manufacturer Site ↗</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-</div><!-- /.catalog-wrap -->
 
 <footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo" style="color:#fff">
-          <div class="logo-icon">
-            <svg viewBox="0 0 24 24" fill="white"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6L12 2zm0 2.18l6 2.7V12c0 4.2-2.8 8.1-6 9.5C8.8 20.1 6 16.2 6 12V6.88l6-2.7z"/></svg>
-          </div>
-          NJ CyberGuard
-        </div>
-        <p>Your trusted partner for network installation, security systems, and cybersecurity solutions across New Jersey.</p>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <ul class="footer-links">
-          <li><a href="/#services">Network Installation</a></li>
-          <li><a href="/#services">Security Installations</a></li>
-          <li><a href="/#services">Network Security</a></li>
-          <li><a href="/#contact">Free Consultation</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul class="footer-links">
-          <li><a href="/#why">Why Us</a></li>
-          <li><a href="/products">Products</a></li>
-          <li><a href="/#contact">Contact</a></li>
-          <li><a href="/build-your-system">Get a Quote</a></li>
-        </ul>
-      </div>
-    </div>
+  <div class="container" style="text-align: center; color: rgba(255,255,255,0.7);">
+    <p>Professional installation available for all products. 2-year warranty on most equipment.</p>
     <div class="footer-bottom">
-      <span>© 2026 NJ CyberGuard. All rights reserved.</span>
-      <span>Serving New Jersey businesses with pride.</span>
+      © 2026 NJ CyberGuard. All rights reserved.
     </div>
   </div>
 </footer>
 
-<script>
-function filterBrand(btn) {
-  const filter = btn.dataset.filter;
-  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-
-  document.querySelectorAll('.product-card').forEach(card => {
-    const show = filter === 'all' || card.dataset.brand === filter;
-    card.classList.toggle('card-hidden', !show);
-  });
-
-  document.querySelectorAll('.brand-section').forEach(section => {
-    const hasVisible = section.querySelector('.product-card:not(.card-hidden)');
-    section.style.display = hasVisible ? '' : 'none';
-  });
-}
-
-// Hash navigation: reset filter so the target card is visible, then scroll
-if (location.hash) {
-  const allBtn = document.querySelector('[data-filter="all"]');
-  if (allBtn) filterBrand(allBtn);
-  requestAnimationFrame(() => {
-    const target = document.getElementById(location.hash.slice(1));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
-}
-</script>
 </body>
 </html>
