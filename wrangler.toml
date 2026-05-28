@@ -1,4 +1,4 @@
-name = "njcyberguard-newsletter"
+name = "njcyberguard-com"
 main = "workers/newsletter/index.js"
 compatibility_date = "2024-09-23"
 account_id = "68dfba371cedbe3fb45453cd5b1749cd"
