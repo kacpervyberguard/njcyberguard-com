@@ -1,724 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Build Your Custom Security System | NJ CyberGuard</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
-    
-    :root {
-      --navy: #0d1b3e;
-      --blue: #1a55af;
-      --sky: #3b82f6;
-      --accent: #e8f0fe;
-      --light: #f8fafc;
-      --gray: #64748b;
-      --border: #e2e8f0;
-      --success: #166534;
-    }
-    
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      color: #1e2937;
-      background: #ffffff;
-      line-height: 1.6;
-    }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    :root{--navy:#0d1b3e;--blue:#1a55af;--sky:#3b82f6;--accent:#e8f0fe;--light:#f7f9ff;--gray:#64748b;--border:#e2e8f0}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#1e293b;background:#fff}
+    a{color:inherit;text-decoration:none}
 
-    header {
-      background: white;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      font-size: 1.35rem;
-      color: var(--navy);
-      text-decoration: none;
-    }
-    .logo-icon {
-      width: 38px;
-      height: 38px;
-      background: var(--blue);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .logo-icon svg { width: 22px; height: 22px; fill: white; }
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border);padding:0 24px}
+    .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem;color:var(--navy)}
+    .logo-icon{width:32px;height:32px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center}
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:.92rem}
+    .nav-links a{color:var(--gray);transition:color .15s}
+    .nav-links a:hover{color:var(--navy)}
+    .nav-cta{background:var(--navy);color:#fff!important;padding:8px 18px;border-radius:7px;font-weight:600}
+    .nav-cta:hover{background:var(--blue)!important}
 
-    .hero {
-      background: linear-gradient(135deg, #0d1b3e 0%, #1a3068 100%);
-      color: white;
-      padding: 80px 0 60px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-    .hero p {
-      font-size: 1.15rem;
-      max-width: 620px;
-      margin: 0 auto 32px;
-      color: rgba(255,255,255,0.85);
-    }
+    /* HERO */
+    .page-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);color:#fff;text-align:center;padding:56px 24px 48px}
+    .page-hero .label{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 14px;font-size:.82rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px}
+    .page-hero h1{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;margin-bottom:12px;letter-spacing:-.02em}
+    .page-hero p{font-size:1rem;opacity:.85;max-width:520px;margin:0 auto}
 
-    .quick-starts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-    .quick-btn {
-      background: white;
-      border: 2px solid var(--blue);
-      color: var(--blue);
-      padding: 10px 20px;
-      border-radius: 9999px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .quick-btn:hover {
-      background: var(--blue);
-      color: white;
-    }
+    /* BUILDER LAYOUT */
+    .builder-wrap{max-width:1100px;margin:0 auto;padding:40px 24px 80px;display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start}
+    @media(max-width:780px){.builder-wrap{grid-template-columns:1fr}.quote-sidebar{position:static!important;order:-1}}
 
-    .step-header {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .step-number {
-      background: var(--blue);
-      color: white;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
+    /* STEP CARDS */
+    .step-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+    .step-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+    .step-num{width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .step-title{font-size:1rem;font-weight:700;color:var(--navy)}
 
-    .option-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-    .option-card {
-      border: 2px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      cursor: pointer;
-      transition: all 0.2s;
-      background: white;
-    }
-    .option-card:hover {
-      border-color: var(--blue);
-    }
-    .option-card.selected {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(26, 85, 175, 0.15);
-    }
-    .option-card h4 {
-      font-size: 1.05rem;
-      margin-bottom: 6px;
-      color: var(--navy);
-    }
-    .option-card p {
-      font-size: 0.9rem;
-      color: var(--gray);
-      line-height: 1.5;
-    }
-    .badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 9999px;
-      margin-bottom: 10px;
-    }
-    .badge-popular { background: #dbeafe; color: #1e40af; }
-    .badge-value { background: #dcfce7; color: #166534; }
-    .badge-premium { background: #fef3c7; color: #92400e; }
+    /* PROPERTY */
+    .property-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media(max-width:500px){.property-grid{grid-template-columns:1fr}}
+    .prop-btn{border:2px solid var(--border);border-radius:10px;padding:14px 12px;background:#fff;cursor:pointer;text-align:center;transition:all .15s}
+    .prop-btn:hover{border-color:var(--sky)}
+    .prop-btn.selected{border-color:var(--blue);background:var(--accent)}
+    .prop-icon{font-size:1.6rem;margin-bottom:6px}
+    .prop-label{font-weight:700;font-size:.9rem;color:var(--navy)}
+    .prop-desc{font-size:.78rem;color:var(--gray);margin-top:2px}
 
-    .included-list {
-      margin-top: 12px;
-      font-size: 0.85rem;
-      color: var(--gray);
-    }
-    .included-list li {
-      margin-bottom: 4px;
-      padding-left: 18px;
-      position: relative;
-    }
-    .included-list li:before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--blue);
-    }
+    /* PRODUCT CATEGORIES */
+    .cat-section{margin-bottom:8px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    .cat-header{display:flex;align-items:center;gap:12px;padding:13px 16px;background:var(--light);cursor:pointer;user-select:none;transition:background .15s}
+    .cat-header:hover{background:var(--accent)}
+    .cat-icon{font-size:1.2rem;flex-shrink:0}
+    .cat-info{flex:1;min-width:0}
+    .cat-name{font-weight:700;font-size:.9rem;color:var(--navy)}
+    .cat-range{font-size:.77rem;color:var(--gray)}
+    .cat-badge{font-size:.78rem;font-weight:700;color:var(--blue);background:var(--accent);border:1px solid #c7d9fb;border-radius:12px;padding:2px 9px;flex-shrink:0;min-width:24px;text-align:center;transition:opacity .15s}
+    .cat-badge:empty{opacity:0}
+    .cat-chevron{color:var(--gray);font-size:.8rem;flex-shrink:0;transition:transform .2s}
+    .cat-header.open .cat-chevron{transform:rotate(180deg)}
+    .cat-body{display:none}
+    .cat-body.open{display:block}
 
-    .quote-sidebar {
-      background: var(--light);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      position: sticky;
-      top: 90px;
-    }
-    .quote-sidebar h3 {
-      font-size: 1.1rem;
-      margin-bottom: 16px;
-      color: var(--navy);
-    }
-    .quote-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-    }
-    .quote-total {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 2px solid var(--border);
-    }
-    .quote-note {
-      font-size: 0.8rem;
-      color: var(--gray);
-      margin-top: 8px;
-    }
+    /* PRODUCT ROWS */
+    .prod-row{display:grid;grid-template-columns:1fr auto 60px;gap:10px;align-items:center;padding:10px 16px;border-top:1px solid var(--border);transition:background .1s}
+    .prod-row:hover{background:#fafbfd}
+    .prod-name{font-size:.87rem;font-weight:500;color:#1e293b}
+    .prod-price{font-size:.77rem;color:var(--gray);margin-top:2px}
+    .qty-ctrl{display:flex;align-items:center;gap:7px;flex-shrink:0}
+    .qty-btn{width:26px;height:26px;border:1.5px solid var(--border);border-radius:6px;background:#fff;cursor:pointer;font-size:.95rem;font-weight:600;display:flex;align-items:center;justify-content:center;line-height:1;transition:all .15s;padding:0}
+    .qty-btn:hover:not(:disabled){border-color:var(--blue);color:var(--blue)}
+    .qty-btn:disabled{opacity:.3;cursor:default}
+    .qty-val{font-size:.88rem;font-weight:700;color:var(--navy);min-width:18px;text-align:center}
+    .prod-sub{font-size:.86rem;font-weight:600;color:var(--navy);text-align:right}
+    .prod-sub.zero{color:var(--border)}
 
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 200;
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-content {
-      background: white;
-      border-radius: 16px;
-      padding: 32px;
-      max-width: 620px;
-      width: 95%;
-      max-height: 85vh;
-      overflow-y: auto;
-    }
+    /* ADD-ONS */
+    .addon-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:500px){.addon-grid{grid-template-columns:1fr}}
+    .addon-item{border:2px solid var(--border);border-radius:10px;padding:12px 14px;cursor:pointer;transition:all .15s}
+    .addon-item:hover{border-color:var(--sky)}
+    .addon-item.selected{border-color:var(--blue);background:var(--accent)}
+    .addon-check{width:18px;height:18px;border-radius:4px;border:2px solid var(--border);margin-bottom:7px;transition:all .15s;position:relative;flex-shrink:0}
+    .addon-item.selected .addon-check{background:var(--blue);border-color:var(--blue)}
+    .addon-item.selected .addon-check::after{content:'';position:absolute;top:1px;left:4px;width:5px;height:9px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg)}
+    .addon-name{font-size:.85rem;font-weight:700;color:var(--navy)}
+    .addon-price{font-size:.8rem;color:var(--blue);font-weight:600;margin:2px 0 4px}
+    .addon-desc{font-size:.77rem;color:var(--gray);line-height:1.45}
 
-    .qty-control {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .qty-btn {
-      width: 32px;
-      height: 32px;
-      border: 1px solid var(--border);
-      background: white;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      cursor: pointer;
-    }
-    .qty-btn:hover {
-      background: var(--accent);
-    }
+    /* FORM */
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+    @media(max-width:500px){.form-grid{grid-template-columns:1fr}}
+    .form-group{display:flex;flex-direction:column;gap:5px}
+    .form-group.full{grid-column:1/-1}
+    .form-group label{font-size:.82rem;font-weight:600;color:var(--navy)}
+    .form-required{color:#e53e3e}
+    .form-group input,.form-group textarea{border:1.5px solid var(--border);border-radius:7px;padding:9px 12px;font-size:.9rem;font-family:inherit;transition:border-color .15s;background:#fff;color:#1e293b}
+    .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--blue)}
+    .form-group textarea{resize:vertical;min-height:90px}
+    .form-submit{width:100%;padding:13px;background:var(--navy);color:#fff;border:none;border-radius:9px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .15s;margin-top:4px}
+    .form-submit:hover:not(:disabled){background:var(--blue)}
+    .form-submit:disabled{opacity:.7;cursor:default}
+    .form-success{display:none;margin-top:14px;padding:12px 16px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;color:#166534;font-size:.88rem}
+    .form-error{display:none;margin-top:14px;padding:12px 16px;background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;color:#991b1b;font-size:.88rem}
 
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      border: none;
-    }
-    .btn-primary {
-      background: var(--blue);
-      color: white;
-    }
-    .btn-primary:hover { background: #1447a0; }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--blue);
-      color: var(--blue);
-    }
+    /* QUOTE SIDEBAR */
+    .quote-sidebar{position:sticky;top:80px}
+    .quote-card{border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .quote-header{background:var(--navy);color:#fff;padding:16px 20px}
+    .quote-header h3{font-size:1rem;font-weight:700;margin-bottom:2px}
+    .quote-header p{font-size:.8rem;opacity:.75}
+    .quote-body{padding:16px 20px}
+    .quote-line{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:8px}
+    .quote-line span{font-size:.83rem;color:var(--gray)}
+    .quote-line strong{font-size:.83rem;color:var(--navy);white-space:nowrap}
+    .quote-line.indent{margin-left:10px;margin-bottom:5px}
+    .quote-line.indent span{font-size:.79rem}
+    .quote-cat-label{font-size:.79rem;font-weight:700;color:var(--navy);margin:8px 0 3px}
+    .quote-divider{border:none;border-top:1px solid var(--border);margin:12px 0}
+    .quote-total{display:flex;justify-content:space-between;align-items:center;margin-top:4px}
+    .quote-total-label{font-size:.9rem;font-weight:700;color:var(--navy)}
+    .quote-total-price{font-size:1.4rem;font-weight:800;color:var(--blue)}
+    .quote-monthly{font-size:.8rem;color:var(--gray);margin-top:6px}
+    .quote-empty{text-align:center;padding:16px 0;color:var(--gray);font-size:.82rem;font-style:italic}
+    .quote-install-badge{display:flex;align-items:center;gap:6px;margin-top:12px;padding:8px 10px;background:var(--accent);border-radius:7px;font-size:.78rem;color:var(--blue);font-weight:600}
+    .quote-note{font-size:.74rem;color:var(--gray);margin-top:12px;line-height:1.55;padding-top:12px;border-top:1px solid var(--border)}
 
-    .financing-note {
-      font-size: 0.85rem;
-      color: #166534;
-      background: #dcfce7;
-      padding: 8px 12px;
-      border-radius: 8px;
-      margin-top: 12px;
-      text-align: center;
-    }
-
-    @media (max-width: 900px) {
-      .option-grid { grid-template-columns: 1fr; }
-    }
+    /* FOOTER */
+    footer{background:var(--navy);color:rgba(255,255,255,.75);padding:48px 24px 24px}
+    .footer-inner{max-width:1100px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+    @media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+    .footer-brand p{font-size:.88rem;margin-top:10px;opacity:.75;line-height:1.55}
+    footer h4{color:#fff;font-size:.9rem;margin-bottom:14px}
+    .footer-links{list-style:none}
+    .footer-links li{margin-bottom:8px}
+    .footer-links a{font-size:.85rem;opacity:.75;transition:opacity .15s}
+    .footer-links a:hover{opacity:1}
+    .footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.8rem;opacity:.6}
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container header-inner">
-    <a href="index.html" class="logo">
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
       <div class="logo-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6L12 2zm0 2.18l6 2.7V12c0 4.2-2.8 8.1-6 9.5C8.8 20.1 6 16.2 6 12V6.88l6-2.7z"/></svg>
       </div>
       NJ CyberGuard
-    </a>
-    <a href="index.html" style="color: var(--gray); font-weight: 500;">← Back to Home</a>
-  </div>
-</header>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="container">
-    <h1>Build Your Custom<br>Security System</h1>
-    <p>Choose what you need. See exactly what’s included. Get a professional quote in under 60 seconds.</p>
-    
-    <div class="quick-starts">
-      <button class="quick-btn" onclick="quickStart('home')">Most Popular for Homes</button>
-      <button class="quick-btn" onclick="quickStart('business')">Best for Small Business</button>
-      <button class="quick-btn" onclick="quickStart('premium')">Maximum Security</button>
+    </div>
+    <div class="nav-links">
+      <a href="/#services">Services</a>
+      <a href="/#why">Why Us</a>
+      <a href="/#contact">Contact</a>
+      <a href="/build-your-system" class="nav-cta">Get a Quote</a>
     </div>
   </div>
-</section>
+</nav>
 
-<div class="container">
+<div class="page-hero">
+  <div class="label">Security System Configurator</div>
+  <h1>Build Your Custom System</h1>
+  <p>Select your property type, pick exactly the products you need, and we'll follow up with your exact quote.</p>
+</div>
 
-  <!-- Step 1 -->
-  <div class="step-section">
-    <div class="step-header"><span class="step-number">1</span> What are you protecting?</div>
-    <div class="option-grid" id="property-options">
-      <div class="option-card selected" data-value="residential" onclick="selectOption(this, 'property')">
-        <h4>Residential Home</h4>
-        <p>Single family home or townhouse. Most popular choice.</p>
+<div class="builder-wrap">
+
+  <div class="builder-main">
+
+    <!-- Step 1: Property Type -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title">Select Property Type</div>
       </div>
-      <div class="option-card" data-value="business" onclick="selectOption(this, 'property')">
-        <h4>Small Business</h4>
-        <p>Retail store, office, or small warehouse (under 10,000 sq ft).</p>
-      </div>
-      <div class="option-card" data-value="multifamily" onclick="selectOption(this, 'property')">
-        <h4>Multi-Family / Apartment</h4>
-        <p>Building with multiple units. Includes tenant access control.</p>
+      <div class="property-grid">
+        <button class="prop-btn selected" data-prop="residential" onclick="selectProperty(this)">
+          <div class="prop-icon">🏠</div>
+          <div class="prop-label">Residential</div>
+          <div class="prop-desc">Home or condo</div>
+        </button>
+        <button class="prop-btn" data-prop="commercial" onclick="selectProperty(this)">
+          <div class="prop-icon">🏢</div>
+          <div class="prop-label">Small Business</div>
+          <div class="prop-desc">Office or retail</div>
+        </button>
+        <button class="prop-btn" data-prop="multifamily" onclick="selectProperty(this)">
+          <div class="prop-icon">🏗️</div>
+          <div class="prop-label">Multi-Family</div>
+          <div class="prop-desc">Apartment / complex</div>
+        </button>
       </div>
     </div>
-  </div>
 
-  <!-- Step 2 -->
-  <div class="step-section">
-    <div class="step-header"><span class="step-number">2</span> How do you want it handled?</div>
-    <div class="option-grid" id="install-options">
-      <div class="option-card selected" data-value="pro" onclick="selectOption(this, 'install')">
-        <h4>Professional Install</h4>
-        <p>Our certified techs handle everything. Recommended for most customers.</p>
+    <!-- Step 2: Choose Products -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title">Choose Your Products</div>
       </div>
-      <div class="option-card" data-value="self" onclick="selectOption(this, 'install')">
-        <h4>Self-Install (DIY)</h4>
-        <p>You install everything yourself. We provide full support and training.</p>
+      <p style="font-size:.84rem;color:var(--gray);margin-bottom:18px;line-height:1.5">
+        Click a category to expand it, then use + / − to set quantities. Equipment prices are per unit — installation is calculated separately in your estimate.
+      </p>
+      <div id="productList"></div>
+    </div>
+
+    <!-- Step 3: Add-ons -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div class="step-title">Optional Add-Ons</div>
       </div>
-      <div class="option-card" data-value="managed" onclick="selectOption(this, 'install')">
-        <span class="badge badge-premium">PREMIUM</span>
-        <h4>Full Managed + Custom Dashboard</h4>
-        <p>We install + give you a branded security dashboard + proactive 24/7 monitoring. <strong>+$89/month</strong></p>
+      <div class="addon-grid">
+        <div class="addon-item" data-addon="dashboard" onclick="toggleAddon(this)">
+          <div class="addon-check"></div>
+          <div class="addon-name">Managed Dashboard</div>
+          <div class="addon-price">+$29/mo</div>
+          <div class="addon-desc">24/7 remote monitoring with alerts and monthly reports</div>
+        </div>
+        <div class="addon-item" data-addon="maintenance" onclick="toggleAddon(this)">
+          <div class="addon-check"></div>
+          <div class="addon-name">Annual Maintenance Plan</div>
+          <div class="addon-price">+$199/yr</div>
+          <div class="addon-desc">1 annual on-site inspection &amp; firmware updates</div>
+        </div>
+        <div class="addon-item" data-addon="training" onclick="toggleAddon(this)">
+          <div class="addon-check"></div>
+          <div class="addon-name">Staff / Family Training</div>
+          <div class="addon-price">Included free</div>
+          <div class="addon-desc">1-hour system orientation for your household or team</div>
+        </div>
+        <div class="addon-item" data-addon="network" onclick="toggleAddon(this)">
+          <div class="addon-check"></div>
+          <div class="addon-name">Network Upgrade</div>
+          <div class="addon-price">+$450</div>
+          <div class="addon-desc">Wi-Fi 6 router + access point for full-property coverage</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Step 3 -->
-  <div class="step-section">
-    <div class="step-header"><span class="step-number">3</span> Choose your protection level</div>
-    
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;">
-      
-      <!-- Recommended Packages -->
-      <div>
-        <h4 style="margin-bottom: 16px; color: var(--navy);">Recommended Packages</h4>
-        
-        <!-- Package 1 -->
-        <div class="option-card" style="margin-bottom: 20px;">
-          <span class="badge badge-popular">MOST POPULAR</span>
-          <h4>Alarm.com Smart Security</h4>
-          <div class="included-list">
-            <li>4x Alarm.com Indoor/Outdoor Cameras</li>
-            <li>6x Door &amp; Window Sensors</li>
-            <li>1x Video Doorbell</li>
-            <li>1x Smart Lock (Schlage Encode)</li>
-            <li>Alarm.com Platform + Professional Monitoring</li>
+    <!-- Step 4: Request Quote -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title">Request Your Quote</div>
+      </div>
+      <p style="font-size:.88rem;color:var(--gray);margin-bottom:20px;">
+        Fill in your details and we'll reach out within one business day with a final quote and available install dates.
+      </p>
+      <form id="quoteForm" onsubmit="submitQuote(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>First Name <span class="form-required">*</span></label>
+            <input type="text" id="fname" placeholder="John" required />
           </div>
-          <button onclick="openCustomizeModal('alarmdotcom')" class="btn btn-outline" style="margin-top: 16px; width: 100%;">Customize this package</button>
-        </div>
-
-        <!-- Package 2 -->
-        <div class="option-card" style="margin-bottom: 20px;">
-          <span class="badge badge-value">BEST VALUE • NO MONTHLY FEES</span>
-          <h4>Privacy-First (Eufy + Aqara)</h4>
-          <div class="included-list">
-            <li>4x Eufy 2K Cameras (local storage)</li>
-            <li>6x Aqara Door/Window Sensors</li>
-            <li>1x Aqara Video Doorbell</li>
-            <li>1x Aqara Smart Lock</li>
-            <li>No monthly monitoring fees</li>
+          <div class="form-group">
+            <label>Last Name <span class="form-required">*</span></label>
+            <input type="text" id="lname" placeholder="Smith" required />
           </div>
-          <button onclick="openCustomizeModal('privacy')" class="btn btn-outline" style="margin-top: 16px; width: 100%;">Customize this package</button>
-        </div>
-
-        <!-- Package 3 -->
-        <div class="option-card">
-          <span class="badge badge-premium">MAXIMUM SECURITY</span>
-          <h4>Premium Cyber Defense</h4>
-          <div class="included-list">
-            <li>6x Ubiquiti G5 Bullet Cameras</li>
-            <li>8x Professional Sensors + Glass Break</li>
-            <li>1x Ubiquiti Video Doorbell</li>
-            <li>Ubiquiti UniFi Dream Machine + Protect</li>
-            <li>Advanced network cybersecurity layer</li>
+          <div class="form-group">
+            <label>Email <span class="form-required">*</span></label>
+            <input type="email" id="email" placeholder="john@example.com" required />
           </div>
-          <button onclick="openCustomizeModal('premium')" class="btn btn-outline" style="margin-top: 16px; width: 100%;">Customize this package</button>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" id="phone" placeholder="(908) 555-0100" />
+          </div>
+          <div class="form-group full">
+            <label>Additional Notes</label>
+            <textarea id="notes" placeholder="Any specific requirements, access concerns, or questions for our team…"></textarea>
+          </div>
         </div>
-      </div>
-
-      <!-- Build Fully Custom -->
-      <div>
-        <h4 style="margin-bottom: 16px; color: var(--navy);">Build Fully Custom</h4>
-        <div class="option-card" style="padding: 32px; text-align: center;">
-          <h4 style="margin-bottom: 12px;">Need something specific?</h4>
-          <p style="color: var(--gray); margin-bottom: 24px;">Choose exact cameras, sensors, locks, and network equipment. Full control over every device.</p>
-          <button onclick="startFullCustom()" class="btn btn-primary" style="width: 100%;">Start Custom Build →</button>
+        <button type="submit" class="form-submit" id="submitBtn">
+          Send My Quote Request →
+        </button>
+        <div class="form-success" id="formSuccess">
+          ✅ Your quote request was sent! We'll be in touch within one business day.
         </div>
-      </div>
-
+        <div class="form-error" id="formError">
+          Something went wrong. Please email us directly at <strong>info@njcyberguard.com</strong> or call <strong>(908) 255-0663</strong>.
+        </div>
+      </form>
     </div>
-  </div>
+
+  </div><!-- end builder-main -->
 
   <!-- Quote Sidebar -->
-  <div style="display: grid; grid-template-columns: 1fr 380px; gap: 32px; align-items: start; margin-top: 40px;">
-    <div></div>
-    
-    <div class="quote-sidebar">
-      <h3>Your Quote Summary</h3>
-      
-      <div id="quote-breakdown">
-        <!-- Populated by JavaScript -->
+  <aside class="quote-sidebar">
+    <div class="quote-card">
+      <div class="quote-header">
+        <h3>Your Estimate</h3>
+        <p>Updates as you configure</p>
       </div>
-
-      <div class="quote-total">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <span>Total Due Today</span>
-          <span id="quote-total">$3,100</span>
+      <div class="quote-body">
+        <div class="quote-line">
+          <span>Property type</span>
+          <strong id="quotePropType">Residential</strong>
+        </div>
+        <hr class="quote-divider">
+        <div id="quoteItems"><div class="quote-empty">No products selected yet</div></div>
+        <hr class="quote-divider">
+        <div class="quote-line">
+          <span>Equipment subtotal</span>
+          <strong id="quoteEquip">$0</strong>
+        </div>
+        <div class="quote-line">
+          <span>Labor &amp; installation</span>
+          <strong id="quoteInstall">$250</strong>
+        </div>
+        <div id="quoteAddonLines"></div>
+        <hr class="quote-divider">
+        <div class="quote-total">
+          <span class="quote-total-label">Total Estimate</span>
+          <span class="quote-total-price" id="quoteTotal">$250</span>
+        </div>
+        <div class="quote-monthly" id="quoteMonthly">No monthly fee</div>
+        <div class="quote-install-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Professional installation included
+        </div>
+        <div class="quote-note">
+          This is an estimate based on standard configurations. Final pricing confirmed after on-site assessment. NJ service area only.
         </div>
       </div>
-      
-      <div class="quote-row" style="margin-top: 12px;">
-        <span>Est. Monthly Monitoring</span> 
-        <span id="quote-monthly">$42/mo</span>
-      </div>
-
-      <div class="financing-note">
-        Finance this system for as low as ~$89/month with approved credit
-      </div>
-
-      <button onclick="openQuoteModal()" class="btn btn-primary" style="width:100%; margin-top: 20px; padding: 14px;">
-        Get My Custom Quote →
-      </button>
-      
-      <button onclick="window.location.href='index.html#contact'" class="btn btn-outline" style="width:100%; margin-top: 10px;">
-        Book a Free Consultation Instead
-      </button>
     </div>
-  </div>
+  </aside>
 
-</div>
+</div><!-- end builder-wrap -->
 
-<!-- Customize Package Modal -->
-<div id="customizeModal" class="modal">
-  <div class="modal-content">
-    <h2 id="modalTitle" style="margin-bottom: 8px;"></h2>
-    <p style="color: var(--gray); margin-bottom: 24px;">Adjust quantities. Price updates live.</p>
-    
-    <div id="modalItems"></div>
-    
-    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="color:#fff">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6L12 2zm0 2.18l6 2.7V12c0 4.2-2.8 8.1-6 9.5C8.8 20.1 6 16.2 6 12V6.88l6-2.7z"/></svg>
+          </div>
+          NJ CyberGuard
+        </div>
+        <p>Your trusted partner for network installation, security systems, and cybersecurity solutions across New Jersey.</p>
+      </div>
       <div>
-        <div style="font-size: 0.9rem; color: var(--gray);">Updated Package Total</div>
-        <div style="font-size: 1.5rem; font-weight: 700;" id="modalTotal">$0</div>
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="/#services">Network Installation</a></li>
+          <li><a href="/#services">Security Installations</a></li>
+          <li><a href="/#services">Network Security</a></li>
+          <li><a href="/#contact">Free Consultation</a></li>
+        </ul>
       </div>
-      <button onclick="applyCustomization()" class="btn btn-primary">Apply Changes</button>
+      <div>
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="/#why">Why Us</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/#contact">Get a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NJ CyberGuard. All rights reserved.</span>
+      <span>Serving New Jersey businesses with pride.</span>
     </div>
   </div>
-</div>
-
-<!-- Final Quote Modal -->
-<div id="quoteModal" class="modal">
-  <div class="modal-content">
-    <h2>Get Your Custom Quote</h2>
-    <p style="color: var(--gray); margin-bottom: 24px;">We'll email you a detailed proposal with exactly what you selected.</p>
-    
-    <form id="quoteForm" onsubmit="submitQuoteForm(event)">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-        <div><label style="font-size:0.85rem; font-weight:600;">First Name</label><input type="text" id="fname" required style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; margin-top:4px;"></div>
-        <div><label style="font-size:0.85rem; font-weight:600;">Last Name</label><input type="text" id="lname" required style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; margin-top:4px;"></div>
-      </div>
-      <div style="margin-bottom:16px;"><label style="font-size:0.85rem; font-weight:600;">Email Address</label><input type="email" id="email" required style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; margin-top:4px;"></div>
-      <div style="margin-bottom:16px;"><label style="font-size:0.85rem; font-weight:600;">Phone Number</label><input type="tel" id="phone" style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; margin-top:4px;"></div>
-      <div style="margin-bottom:20px;"><label style="font-size:0.85rem; font-weight:600;">Additional Notes</label><textarea id="notes" rows="3" style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; margin-top:4px;" placeholder="Any specific requirements..."></textarea></div>
-      
-      <button type="submit" class="btn btn-primary" style="width:100%;">Send My Quote Request →</button>
-    </form>
-    
-    <div id="formSuccess" style="display:none; text-align:center; margin-top:20px; color:#166534; font-weight:600;">
-      ✅ Thank you! We'll send your custom quote within 1 business day.
-    </div>
-  </div>
-</div>
+</footer>
 
 <script>
-// State
-let selections = {
-  property: 'residential',
-  install: 'pro',
-  tier: 'alarmdotcom',
-  customItems: {},
-  addManagedDashboard: false
-};
-
-let currentPackageForModal = '';
-
-const packages = {
-  alarmdotcom: {
-    name: "Alarm.com Smart Security",
-    baseEquipment: 2450,
-    baseInstall: 650,
-    monthly: 42,
+// ── Product Data ─────────────────────────────────────────────────────────────
+const categories = [
+  {
+    id: 'indoor_cam',
+    label: 'Indoor Camera',
+    icon: '📷',
+    installPer: 50,
     items: [
-      { id: 'camera', label: 'Alarm.com Cameras', price: 320, qty: 4 },
-      { id: 'sensor', label: 'Door/Window Sensors', price: 45, qty: 6 },
-      { id: 'doorbell', label: 'Video Doorbell', price: 280, qty: 1 },
-      { id: 'lock', label: 'Smart Lock (Schlage)', price: 220, qty: 1 }
+      { id: 'eufy_indoor',  name: 'Eufy 2K Indoor Pan/Tilt',   price: 80 },
+      { id: 'aqara_g3',     name: 'Aqara G3 Camera Hub',        price: 90 },
+      { id: 'reolink_e1',   name: 'Reolink E1 Pro 4MP',         price: 70 },
     ]
   },
-  privacy: {
-    name: "Privacy-First (Eufy + Aqara)",
-    baseEquipment: 1890,
-    baseInstall: 550,
-    monthly: 0,
+  {
+    id: 'doorbell_cam',
+    label: 'Doorbell Camera',
+    icon: '🔔',
+    installPer: 100,
     items: [
-      { id: 'camera', label: 'Eufy 2K Cameras', price: 280, qty: 4 },
-      { id: 'sensor', label: 'Aqara Sensors', price: 38, qty: 6 },
-      { id: 'doorbell', label: 'Aqara Video Doorbell', price: 240, qty: 1 },
-      { id: 'lock', label: 'Aqara Smart Lock', price: 190, qty: 1 }
+      { id: 'eufy_doorbell',    name: 'Eufy Video Doorbell 2K',        price: 180 },
+      { id: 'aqara_doorbell',   name: 'Aqara Video Doorbell G4',       price: 240 },
+      { id: 'reolink_doorbell', name: 'Reolink Video Doorbell WiFi',   price: 160 },
     ]
   },
-  premium: {
-    name: "Premium Cyber Defense",
-    baseEquipment: 3290,
-    baseInstall: 850,
-    monthly: 68,
+  {
+    id: 'outdoor_cam',
+    label: 'Outdoor Camera',
+    icon: '📹',
+    installPer: 75,
     items: [
-      { id: 'camera', label: 'Ubiquiti G5 Bullet Cameras', price: 380, qty: 6 },
-      { id: 'sensor', label: 'Professional Sensors + Glass Break', price: 65, qty: 8 },
-      { id: 'doorbell', label: 'Ubiquiti Video Doorbell', price: 320, qty: 1 },
-      { id: 'network', label: 'UniFi Dream Machine + Protect', price: 650, qty: 1 }
+      { id: 'eufy_outdoor',    name: 'Eufy 2K Outdoor SoloCam',     price: 100 },
+      { id: 'reolink_argus',   name: 'Reolink Argus 3 Pro',          price: 90  },
+      { id: 'ubiquiti_g4',     name: 'Ubiquiti G4 Bullet (PoE)',     price: 130 },
+      { id: 'ubiquiti_g5pro',  name: 'Ubiquiti G5 Pro 4K (PoE)',    price: 200 },
     ]
+  },
+  {
+    id: 'sensor',
+    label: 'Motion Sensor',
+    icon: '🚨',
+    installPer: 15,
+    items: [
+      { id: 'aqara_door',   name: 'Aqara Door / Window Sensor',  price: 20 },
+      { id: 'aqara_motion', name: 'Aqara Motion Sensor P1',      price: 28 },
+      { id: 'zwave_door',   name: 'Z-Wave Door Sensor',          price: 35 },
+      { id: 'zwave_motion', name: 'Z-Wave Motion Sensor',        price: 45 },
+    ]
+  },
+  {
+    id: 'smart_lock',
+    label: 'Smart Lock',
+    icon: '🔐',
+    installPer: 75,
+    items: [
+      { id: 'aqara_lock', name: 'Aqara U100 Smart Lock',  price: 190 },
+      { id: 'schlage',    name: 'Schlage Encode Plus',     price: 220 },
+    ]
+  },
+  {
+    id: 'smart_switch',
+    label: 'Smart Switch',
+    icon: '💡',
+    installPer: 25,
+    items: [
+      { id: 'aqara_sw1',  name: 'Aqara Single Gang Switch',  price: 25 },
+      { id: 'aqara_sw2',  name: 'Aqara Double Gang Switch',  price: 35 },
+      { id: 'zwave_plug', name: 'Z-Wave Smart Plug',         price: 50 },
+    ]
+  },
+];
+
+// Base labor by property type
+const baseInstall = { residential: 250, commercial: 400, multifamily: 550 };
+const propLabels  = { residential: 'Residential', commercial: 'Small Business', multifamily: 'Multi-Family' };
+
+let state = { property: 'residential', quantities: {}, addons: {} };
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+function init() {
+  renderProducts();
+  updateQuote();
+}
+
+// ── Property Selection ────────────────────────────────────────────────────────
+function selectProperty(btn) {
+  document.querySelectorAll('.prop-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  state.property = btn.dataset.prop;
+  updateQuote();
+}
+
+// ── Render Product Categories ─────────────────────────────────────────────────
+function renderProducts() {
+  const container = document.getElementById('productList');
+  container.innerHTML = categories.map(cat => {
+    const prices = cat.items.map(i => i.price);
+    const min = Math.min(...prices), max = Math.max(...prices);
+    const range = min === max ? `$${min} each` : `$${min}–$${max} each`;
+
+    const rows = cat.items.map(item => {
+      const qty = state.quantities[item.id] || 0;
+      return `
+        <div class="prod-row">
+          <div>
+            <div class="prod-name">${item.name}</div>
+            <div class="prod-price">$${item.price.toLocaleString()} / unit &nbsp;·&nbsp; +$${cat.installPer} install</div>
+          </div>
+          <div class="qty-ctrl">
+            <button class="qty-btn" onclick="changeQty('${item.id}','${cat.id}',-1)" id="minus-${item.id}" ${qty===0?'disabled':''}>−</button>
+            <div class="qty-val" id="qty-${item.id}">${qty}</div>
+            <button class="qty-btn" onclick="changeQty('${item.id}','${cat.id}',1)">+</button>
+          </div>
+          <div class="prod-sub ${qty===0?'zero':''}" id="sub-${item.id}">${qty>0?'$'+(item.price*qty).toLocaleString():'—'}</div>
+        </div>`;
+    }).join('');
+
+    const totalQty = cat.items.reduce((s,i) => s+(state.quantities[i.id]||0), 0);
+    return `
+      <div class="cat-section">
+        <div class="cat-header open" onclick="toggleCat(this)">
+          <span class="cat-icon">${cat.icon}</span>
+          <div class="cat-info">
+            <div class="cat-name">${cat.label}</div>
+            <div class="cat-range">${range}</div>
+          </div>
+          <span class="cat-badge" id="badge-${cat.id}">${totalQty>0?totalQty:''}</span>
+          <span class="cat-chevron">▼</span>
+        </div>
+        <div class="cat-body open" id="body-${cat.id}">${rows}</div>
+      </div>`;
+  }).join('');
+}
+
+// ── Toggle Category ───────────────────────────────────────────────────────────
+function toggleCat(header) {
+  header.classList.toggle('open');
+  header.nextElementSibling.classList.toggle('open');
+}
+
+// ── Change Quantity ───────────────────────────────────────────────────────────
+function changeQty(itemId, catId, delta) {
+  const current = state.quantities[itemId] || 0;
+  const next    = Math.max(0, current + delta);
+  state.quantities[itemId] = next;
+
+  const cat  = categories.find(c => c.id === catId);
+  const item = cat?.items.find(i => i.id === itemId);
+
+  const qtyEl   = document.getElementById('qty-'   + itemId);
+  const minusEl = document.getElementById('minus-' + itemId);
+  const subEl   = document.getElementById('sub-'   + itemId);
+
+  if (qtyEl)   qtyEl.textContent  = next;
+  if (minusEl) minusEl.disabled   = next === 0;
+  if (subEl) {
+    subEl.textContent = next > 0 ? '$' + (item.price * next).toLocaleString() : '—';
+    subEl.className   = 'prod-sub' + (next === 0 ? ' zero' : '');
   }
-};
 
+  const totalQty = cat.items.reduce((s,i) => s+(state.quantities[i.id]||0), 0);
+  const badgeEl  = document.getElementById('badge-' + catId);
+  if (badgeEl) badgeEl.textContent = totalQty > 0 ? totalQty : '';
+
+  updateQuote();
+}
+
+// ── Add-on Toggle ─────────────────────────────────────────────────────────────
+function toggleAddon(el) {
+  el.classList.toggle('selected');
+  state.addons[el.dataset.addon] = el.classList.contains('selected');
+  updateQuote();
+}
+
+// ── Update Quote Sidebar ──────────────────────────────────────────────────────
 function updateQuote() {
-  const pkg = packages[selections.tier] || packages.alarmdotcom;
-  let equipment = pkg.baseEquipment;
-  let install = pkg.baseInstall;
-  let monthly = pkg.monthly;
+  let equipCost   = 0;
+  let installCost = baseInstall[state.property];
+  let itemsHtml   = '';
 
-  if (Object.keys(selections.customItems).length > 0) {
-    equipment = 0;
-    Object.keys(selections.customItems).forEach(key => {
-      const item = pkg.items.find(i => i.id === key);
-      if (item) equipment += item.price * selections.customItems[key];
-    });
+  for (const cat of categories) {
+    const selected = cat.items.filter(i => (state.quantities[i.id]||0) > 0);
+    if (!selected.length) continue;
+    itemsHtml += `<div class="quote-cat-label">${cat.icon} ${cat.label}</div>`;
+    for (const item of selected) {
+      const qty = state.quantities[item.id];
+      const sub = item.price * qty;
+      equipCost   += sub;
+      installCost += cat.installPer * qty;
+      itemsHtml   += `
+        <div class="quote-line indent">
+          <span>${item.name} ×${qty}</span>
+          <strong>$${sub.toLocaleString()}</strong>
+        </div>`;
+    }
   }
 
-  if (selections.install === 'self') install = 0;
-  if (selections.install === 'managed') {
-    install = pkg.baseInstall + 300;
-    monthly = monthly + 89;
-    selections.addManagedDashboard = true;
+  const addonMeta = {
+    dashboard:   { label: 'Managed Dashboard',  price: 0,   monthly: 29 },
+    maintenance: { label: 'Annual Maintenance', price: 199, monthly: 0  },
+    training:    { label: 'Staff Training',     price: 0,   monthly: 0  },
+    network:     { label: 'Network Upgrade',    price: 450, monthly: 0  },
+  };
+  let addonOneTime = 0, addonMonthly = 0, addonLines = '';
+  for (const [key, active] of Object.entries(state.addons)) {
+    if (!active) continue;
+    const a = addonMeta[key];
+    if (!a) continue;
+    if (a.price > 0) {
+      addonOneTime += a.price;
+      addonLines   += `<div class="quote-line"><span>${a.label}</span><strong>+$${a.price.toLocaleString()}</strong></div>`;
+    }
+    addonMonthly += a.monthly;
   }
 
-  const total = equipment + install;
+  const total       = equipCost + installCost + addonOneTime;
+  const monthlyText = addonMonthly > 0 ? `+$${addonMonthly}/mo` : 'No monthly fee';
 
-  document.getElementById('quote-breakdown').innerHTML = `
-    <div class="quote-row"><span>Equipment</span> <span>$${equipment.toLocaleString()}</span></div>
-    <div class="quote-row"><span>Professional Installation</span> <span>$${install.toLocaleString()}</span></div>
-  `;
-
-  document.getElementById('quote-total').textContent = '$' + total.toLocaleString();
-  document.getElementById('quote-monthly').textContent = '$' + monthly + '/mo';
+  document.getElementById('quotePropType').textContent    = propLabels[state.property];
+  document.getElementById('quoteItems').innerHTML         = itemsHtml || '<div class="quote-empty">No products selected yet</div>';
+  document.getElementById('quoteEquip').textContent       = '$' + equipCost.toLocaleString();
+  document.getElementById('quoteInstall').textContent     = '$' + installCost.toLocaleString();
+  document.getElementById('quoteAddonLines').innerHTML    = addonLines;
+  document.getElementById('quoteTotal').textContent       = '$' + total.toLocaleString();
+  document.getElementById('quoteMonthly').textContent     = monthlyText;
 }
 
-function selectOption(element, type) {
-  const container = element.parentElement;
-  container.querySelectorAll('.option-card').forEach(el => el.classList.remove('selected'));
-  element.classList.add('selected');
-  selections[type] = element.dataset.value;
-
-  if (type === 'install' && element.dataset.value === 'managed') {
-    selections.addManagedDashboard = true;
-  }
-
-  updateQuote();
-}
-
-function quickStart(type) {
-  document.querySelectorAll('.option-card').forEach(el => el.classList.remove('selected'));
-
-  if (type === 'home') {
-    selections = { property: 'residential', install: 'pro', tier: 'alarmdotcom', customItems: {}, addManagedDashboard: false };
-  } else if (type === 'business') {
-    selections = { property: 'business', install: 'pro', tier: 'alarmdotcom', customItems: {}, addManagedDashboard: false };
-  } else if (type === 'premium') {
-    selections = { property: 'residential', install: 'managed', tier: 'premium', customItems: {}, addManagedDashboard: true };
-  }
-
-  document.querySelectorAll('#property-options .option-card').forEach(el => {
-    if (el.dataset.value === selections.property) el.classList.add('selected');
-  });
-  document.querySelectorAll('#install-options .option-card').forEach(el => {
-    if (el.dataset.value === selections.install) el.classList.add('selected');
-  });
-
-  updateQuote();
-}
-
-function openCustomizeModal(pkgKey) {
-  currentPackageForModal = pkgKey;
-  const pkg = packages[pkgKey];
-  const modal = document.getElementById('customizeModal');
-  const container = document.getElementById('modalItems');
-
-  document.getElementById('modalTitle').textContent = `Customize ${pkg.name}`;
-
-  let html = '';
-  pkg.items.forEach(item => {
-    const currentQty = selections.customItems[item.id] !== undefined ? selections.customItems[item.id] : item.qty;
-    html += `
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border);">
-        <div>
-          <div style="font-weight:600;">${item.label}</div>
-          <div style="font-size:0.85rem; color:var(--gray);">$${item.price} each</div>
-        </div>
-        <div class="qty-control">
-          <button class="qty-btn" onclick="changeQty('${item.id}', -1)">−</button>
-          <span id="qty-${item.id}" style="min-width:32px; text-align:center; font-weight:600;">${currentQty}</span>
-          <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
-        </div>
-      </div>
-    `;
-  });
-
-  container.innerHTML = html;
-  updateModalTotal();
-  modal.style.display = 'flex';
-}
-
-function changeQty(itemId, delta) {
-  if (!selections.customItems[itemId]) {
-    const pkg = packages[currentPackageForModal];
-    const item = pkg.items.find(i => i.id === itemId);
-    selections.customItems[itemId] = item.qty;
-  }
-  selections.customItems[itemId] = Math.max(0, selections.customItems[itemId] + delta);
-  document.getElementById(`qty-${itemId}`).textContent = selections.customItems[itemId];
-  updateModalTotal();
-}
-
-function updateModalTotal() {
-  const pkg = packages[currentPackageForModal];
-  let total = 0;
-  pkg.items.forEach(item => {
-    const qty = selections.customItems[item.id] !== undefined ? selections.customItems[item.id] : item.qty;
-    total += item.price * qty;
-  });
-  document.getElementById('modalTotal').textContent = '$' + total.toLocaleString();
-}
-
-function applyCustomization() {
-  document.getElementById('customizeModal').style.display = 'none';
-  updateQuote();
-}
-
-function openQuoteModal() {
-  document.getElementById('quoteModal').style.display = 'flex';
-}
-
-function closeQuoteModal() {
-  document.getElementById('quoteModal').style.display = 'none';
-}
-
-async function submitQuoteForm(e) {
+// ── Form Submission ───────────────────────────────────────────────────────────
+async function submitQuote(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
+  const btn     = document.getElementById('submitBtn');
+  const success = document.getElementById('formSuccess');
+  const error   = document.getElementById('formError');
+  success.style.display = 'none';
+  error.style.display   = 'none';
+  btn.textContent = 'Sending…';
+  btn.disabled    = true;
 
-  setTimeout(() => {
-    document.getElementById('formSuccess').style.display = 'block';
-    e.target.style.display = 'none';
-    
-    setTimeout(() => {
-      closeQuoteModal();
-      document.getElementById('formSuccess').style.display = 'none';
-      e.target.style.display = 'block';
-      e.target.reset();
-      btn.textContent = 'Send My Quote Request →';
-      btn.disabled = false;
-    }, 3000);
-  }, 1200);
+  const fname = document.getElementById('fname').value.trim();
+  const lname = document.getElementById('lname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const notes = document.getElementById('notes').value.trim();
+
+  let equipCost = 0, installCost = baseInstall[state.property], equipSummary = '';
+  for (const cat of categories) {
+    for (const item of cat.items) {
+      const qty = state.quantities[item.id] || 0;
+      if (qty > 0) {
+        const sub   = item.price * qty;
+        equipCost  += sub;
+        installCost += cat.installPer * qty;
+        equipSummary += `\n  • ${item.name} ×${qty} = $${sub.toLocaleString()}`;
+      }
+    }
+  }
+
+  const addonLabels = {
+    dashboard:   'Managed Dashboard (+$29/mo)',
+    maintenance: 'Annual Maintenance Plan (+$199/yr)',
+    training:    'Staff / Family Training (free)',
+    network:     'Network Upgrade (+$450)',
+  };
+  const selectedAddons = Object.entries(state.addons).filter(([,v])=>v).map(([k])=>addonLabels[k]||k);
+  const addonOneTime   = (state.addons.maintenance?199:0) + (state.addons.network?450:0);
+  const total          = equipCost + installCost + addonOneTime;
+
+  const msg = `CUSTOM SECURITY SYSTEM QUOTE REQUEST
+
+Property Type: ${propLabels[state.property]}
+
+Selected Equipment:${equipSummary||'\n  None selected'}
+
+Labor & Installation: $${installCost.toLocaleString()} (base labor + per-device install)
+
+Add-Ons:${selectedAddons.length?'\n  • '+selectedAddons.join('\n  • '):'\n  None'}
+
+TOTAL ESTIMATE: $${total.toLocaleString()}
+
+Additional Notes:
+${notes||'None'}`;
+
+  try {
+    const res = await fetch('/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fname, lname, email, phone, service: 'Custom Security System Quote', msg })
+    });
+    if (res.ok) {
+      success.style.display = 'block';
+      document.getElementById('quoteForm').reset();
+      success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      error.style.display = 'block';
+    }
+  } catch (err) {
+    error.style.display = 'block';
+  } finally {
+    btn.textContent = 'Send My Quote Request →';
+    btn.disabled    = false;
+  }
 }
 
-function startFullCustom() {
-  alert("Full custom builder coming in the next update. For now, use the Recommended Packages + Customize buttons.");
-}
-
-window.onload = function() {
-  document.querySelector('#property-options .option-card[data-value="residential"]').classList.add('selected');
-  document.querySelector('#install-options .option-card[data-value="pro"]').classList.add('selected');
-  updateQuote();
-};
+init();
 </script>
-
 </body>
 </html>
